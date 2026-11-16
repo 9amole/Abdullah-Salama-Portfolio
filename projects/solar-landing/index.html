@@ -1,0 +1,383 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ضيّ | أنظمة الطاقة الشمسية للمنازل والمزارع</title>
+<meta name="description" content="ضيّ — تصميم وتركيب أنظمة الطاقة الشمسية للمنازل والمزارع والمحلات. احسب النظام المناسب لاستهلاكك واطلب معاينة مجانية.">
+<meta name="theme-color" content="#f6f1e7">
+<meta property="og:title" content="ضيّ | أنظمة الطاقة الشمسية">
+<meta property="og:description" content="خلّي الشمس تشيل عنك جزء من فاتورة الكهرباء.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='16' fill='%230f2a24'/%3E%3Ccircle cx='16' cy='16' r='6' fill='%23f2b33d'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Readex+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="brand" aria-label="ضيّ — الصفحة الرئيسية">
+      <svg class="brand__mark" viewBox="0 0 36 36" aria-hidden="true">
+        <circle cx="18" cy="18" r="18" class="brand__bg"/>
+        <path d="M6 24 A12 12 0 0 1 30 24" class="brand__arc"/>
+        <circle cx="18" cy="15" r="5" class="brand__sun"/>
+      </svg>
+      <span class="brand__name">ضيّ</span>
+    </a>
+    <nav class="nav__links" aria-label="القائمة الرئيسية">
+      <a href="#how">كيف تعمل</a>
+      <a href="#calc">احسب نظامك</a>
+      <a href="#steps">خطوات التركيب</a>
+      <a href="#faq">أسئلة</a>
+    </nav>
+    <a href="#contact" class="btn btn--sun btn--sm">معاينة مجانية</a>
+    <button class="nav__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <p class="pill"><span class="pill__sun"></span> طاقة شمسية للمنازل والمزارع والمحلات</p>
+      <h1 class="hero__title">خلّي الشمس تدفع<br>جزءًا من <span class="mark">فاتورتك</span></h1>
+      <p class="hero__lead">نصمم ونركّب أنظمة طاقة شمسية مناسبة لاستهلاكك الفعلي، من أول معاينة السطح حتى تشغيل النظام ومتابعته. بدون مبالغة في الحجم، وبدون مصاريف لا تحتاجها.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--sun">اطلب معاينة مجانية</a>
+        <a href="#calc" class="btn btn--ghost">احسب النظام المناسب لك
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></a>
+      </div>
+      <ul class="hero__facts">
+        <li><b>٢٥</b><span>سنة ضمان أداء الألواح</span></li>
+        <li><b>٣</b><span>أيام متوسط مدة التركيب</span></li>
+        <li><b>٢٤/٧</b><span>متابعة الإنتاج من الموبايل</span></li>
+      </ul>
+    </div>
+
+    <figure class="scene" aria-label="رسم متحرك لمنزل عليه ألواح شمسية تنتج الكهرباء خلال اليوم">
+      <svg viewBox="0 0 480 400" class="scene__svg" aria-hidden="true">
+        <defs>
+          <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" id="skyTop" stop-color="#cfe3df"/>
+            <stop offset="1" id="skyBottom" stop-color="#f6f1e7"/>
+          </linearGradient>
+          <linearGradient id="panelGlass" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#1f4a5c"/>
+            <stop offset="1" stop-color="#0f2a33"/>
+          </linearGradient>
+          <radialGradient id="sunGlow">
+            <stop offset="0" stop-color="#f2b33d" stop-opacity=".55"/>
+            <stop offset="1" stop-color="#f2b33d" stop-opacity="0"/>
+          </radialGradient>
+        </defs>
+
+        <rect width="480" height="400" rx="22" fill="url(#sky)"/>
+        <path d="M40 330 A200 175 0 0 1 440 330" class="arc"/>
+
+        <g id="sun">
+          <circle r="46" fill="url(#sunGlow)"/>
+          <circle r="17" class="sun"/>
+        </g>
+
+        <!-- distant hills -->
+        <path d="M0 300 C 80 270, 150 290, 220 280 S 380 260, 480 285 V330 H0Z" class="hill"/>
+
+        <!-- building -->
+        <g class="house">
+          <rect x="120" y="222" width="190" height="108" rx="3" class="house__body"/>
+          <rect x="112" y="214" width="206" height="10" rx="2" class="house__roof"/>
+          <rect x="142" y="244" width="30" height="34" rx="2" class="win" id="win1"/>
+          <rect x="186" y="244" width="30" height="34" rx="2" class="win" id="win2"/>
+          <rect x="258" y="244" width="30" height="34" rx="2" class="win" id="win3"/>
+          <rect x="222" y="288" width="26" height="42" rx="2" class="door"/>
+          <rect x="142" y="292" width="30" height="24" rx="2" class="win" id="win4"/>
+        </g>
+
+        <!-- panels on racks -->
+        <g class="panels">
+          <g transform="translate(128 214)">
+            <path d="M8 0 L14 -14 M44 0 L50 -14" class="rack"/>
+            <path d="M0 -6 L18 -34 L64 -34 L46 -6 Z" class="panel"/>
+            <path d="M6 -15 L52 -15 M12 -24 L58 -24 M24 -6 L39 -34" class="panel__grid"/>
+            <path d="M0 -6 L18 -34 L64 -34 L46 -6 Z" class="panel__shine"/>
+          </g>
+          <g transform="translate(192 214)">
+            <path d="M8 0 L14 -14 M44 0 L50 -14" class="rack"/>
+            <path d="M0 -6 L18 -34 L64 -34 L46 -6 Z" class="panel"/>
+            <path d="M6 -15 L52 -15 M12 -24 L58 -24 M24 -6 L39 -34" class="panel__grid"/>
+            <path d="M0 -6 L18 -34 L64 -34 L46 -6 Z" class="panel__shine"/>
+          </g>
+          <g transform="translate(256 214)">
+            <path d="M8 0 L14 -14 M44 0 L50 -14" class="rack"/>
+            <path d="M0 -6 L18 -34 L64 -34 L46 -6 Z" class="panel"/>
+            <path d="M6 -15 L52 -15 M12 -24 L58 -24 M24 -6 L39 -34" class="panel__grid"/>
+            <path d="M0 -6 L18 -34 L64 -34 L46 -6 Z" class="panel__shine"/>
+          </g>
+        </g>
+
+        <!-- inverter + battery -->
+        <g class="kit">
+          <rect x="340" y="256" width="38" height="46" rx="5" class="inverter"/>
+          <circle cx="359" cy="272" r="4" class="led" id="led"/>
+          <rect x="348" y="284" width="22" height="3" rx="1.5" class="inverter__line"/>
+          <rect x="390" y="268" width="44" height="62" rx="6" class="battery"/>
+          <rect x="404" y="262" width="16" height="7" rx="2" class="battery"/>
+          <rect x="397" y="276" width="30" height="47" rx="3" class="battery__slot"/>
+          <rect x="397" y="323" width="30" height="0" rx="3" class="battery__fill" id="batFill"/>
+        </g>
+
+        <!-- energy flow -->
+        <path d="M320 200 C 345 200, 359 220, 359 256" class="flow" id="flow1"/>
+        <path d="M378 290 C 386 290, 390 296, 390 300" class="flow" id="flow2"/>
+        <path d="M340 296 C 330 296, 318 296, 310 296" class="flow" id="flow3"/>
+
+        <line x1="0" y1="330" x2="480" y2="330" class="ground"/>
+        <rect x="0" y="330" width="480" height="70" rx="0" class="soil"/>
+      </svg>
+
+      <div class="meter" aria-hidden="true">
+        <div class="meter__row"><span>الإنتاج الآن</span><b><span id="kw">0.0</span> <small>kW</small></b></div>
+        <div class="meter__row"><span>إنتاج اليوم</span><b><span id="kwh">0.0</span> <small>kWh</small></b></div>
+        <div class="meter__time"><span id="clock">06:00</span><i class="meter__bar"><i id="dayBar"></i></i></div>
+      </div>
+    </figure>
+  </div>
+</section>
+
+<!-- HOW -->
+<section class="section" id="how">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="eyebrow">كيف تعمل الطاقة الشمسية؟</p>
+      <h2>ثلاث قطع تعمل معًا<br>لتحويل ضوء الشمس إلى كهرباء</h2>
+    </header>
+
+    <ol class="parts">
+      <li class="part reveal">
+        <div class="part__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><path d="M6 34 L14 14 H42 L34 34 Z"/><path d="M10 24 H38 M24 14 L20 34"/></svg></div>
+        <h3>الألواح الشمسية</h3>
+        <p>تُثبَّت على السطح بزاوية مناسبة لموقعك، وتحوّل ضوء الشمس إلى كهرباء مستمرة (DC).</p>
+      </li>
+      <li class="part reveal">
+        <div class="part__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="8" width="24" height="32" rx="4"/><path d="M18 30 q3 -6 6 0 t6 0"/><circle cx="24" cy="17" r="2.5"/></svg></div>
+        <h3>الإنفرتر</h3>
+        <p>يحوّل الكهرباء إلى تيار متردد (AC) تشتغل عليه أجهزة البيت، ويوزّع الطاقة بذكاء بين الاستهلاك والبطاريات.</p>
+      </li>
+      <li class="part reveal">
+        <div class="part__icon"><svg viewBox="0 0 48 48" aria-hidden="true"><rect x="12" y="12" width="24" height="30" rx="4"/><path d="M20 8 h8 M20 26 h8 M24 22 v8"/></svg></div>
+        <h3>البطاريات <small>(اختياري)</small></h3>
+        <p>تخزّن الفائض في النهار، فيستمر البيت في العمل ليلًا أو وقت انقطاع الكهرباء.</p>
+      </li>
+    </ol>
+
+    <div class="types reveal" id="types">
+      <div class="types__tabs" role="tablist" aria-label="أنواع الأنظمة">
+        <button role="tab" aria-selected="true" aria-controls="t-on" id="tab-on">متصل بالشبكة</button>
+        <button role="tab" aria-selected="false" aria-controls="t-hy" id="tab-hy" tabindex="-1">هجين</button>
+        <button role="tab" aria-selected="false" aria-controls="t-off" id="tab-off" tabindex="-1">منفصل عن الشبكة</button>
+      </div>
+      <div class="types__panel" role="tabpanel" id="t-on" aria-labelledby="tab-on">
+        <div><h3>On-Grid · متصل بالشبكة</h3><p>الألواح تغذي البيت مباشرة في النهار، والشبكة تكمّل الباقي. أقل تكلفة وأسرع في استرداد ثمنه.</p></div>
+        <ul><li>مناسب لـ: المنازل والمحلات التي لا تعاني من الانقطاع</li><li>البطاريات: لا يحتاجها</li><li>التكلفة: <b>الأقل</b></li></ul>
+      </div>
+      <div class="types__panel" role="tabpanel" id="t-hy" aria-labelledby="tab-hy" hidden>
+        <div><h3>Hybrid · هجين</h3><p>يجمع بين الشبكة والبطاريات: توفير في الفاتورة، وكهرباء احتياطية وقت الانقطاع.</p></div>
+        <ul><li>مناسب لـ: المنازل في المناطق التي يتكرر فيها الانقطاع</li><li>البطاريات: بسعة حسب احتياجك</li><li>التكلفة: <b>متوسطة</b></li></ul>
+      </div>
+      <div class="types__panel" role="tabpanel" id="t-off" aria-labelledby="tab-off" hidden>
+        <div><h3>Off-Grid · منفصل عن الشبكة</h3><p>نظام مستقل تمامًا للأماكن البعيدة عن الشبكة، مثل المزارع وطلمبات الري والاستراحات.</p></div>
+        <ul><li>مناسب لـ: المزارع والآبار والأماكن النائية</li><li>البطاريات: أساسية</li><li>التكلفة: <b>حسب الأحمال</b></li></ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CALCULATOR -->
+<section class="section section--deep" id="calc">
+  <div class="container calc">
+    <header class="sec-head sec-head--light reveal">
+      <p class="eyebrow">احسب نظامك</p>
+      <h2>كم لوحًا تحتاج؟</h2>
+      <p class="sec-head__lead">حرّك المؤشر حسب استهلاكك الشهري المكتوب في فاتورة الكهرباء (بالكيلووات ساعة)، وشاهد حجم النظام المناسب لك.</p>
+    </header>
+
+    <div class="calc__box reveal">
+      <div class="calc__input">
+        <label for="usage">استهلاكك الشهري</label>
+        <output id="usageOut" for="usage"><b>600</b> kWh</output>
+        <input type="range" id="usage" min="100" max="3000" step="50" value="600" aria-describedby="usageHint">
+        <div class="calc__scale" id="usageHint"><span>100 kWh</span><span>3000 kWh</span></div>
+
+        <fieldset class="calc__cover">
+          <legend>نسبة التغطية المطلوبة</legend>
+          <div class="chips">
+            <input type="radio" name="cover" id="c50" value="0.5"><label for="c50">٥٠٪</label>
+            <input type="radio" name="cover" id="c75" value="0.75" checked><label for="c75">٧٥٪</label>
+            <input type="radio" name="cover" id="c100" value="1"><label for="c100">١٠٠٪</label>
+          </div>
+        </fieldset>
+      </div>
+
+      <dl class="calc__out" aria-live="polite">
+        <div class="calc__big"><dt>حجم النظام المقترح</dt><dd><b id="rKw">3.4</b> <span>kW</span></dd></div>
+        <div><dt>عدد الألواح <small>(٥٥٠ وات)</small></dt><dd><b id="rPanels">7</b> <span id="rPanelsUnit">ألواح</span></dd></div>
+        <div><dt>مساحة السطح</dt><dd><b id="rArea">18</b> <span>م² تقريبًا</span></dd></div>
+        <div><dt>الإنتاج السنوي</dt><dd><b id="rYear">5,400</b> <span>kWh</span></dd></div>
+        <div><dt>انبعاثات CO₂ أقل</dt><dd><b id="rCo2">2.4</b> <span>طن / سنة</span></dd></div>
+      </dl>
+      <p class="calc__note">أرقام تقديرية مبنية على متوسط ٥٫٥ ساعة شمس فعّالة يوميًا وكفاءة نظام ٨٠٪. الحجم النهائي يتحدد بعد المعاينة.</p>
+      <a href="#contact" class="btn btn--sun calc__cta" id="calcCta">اطلب عرض سعر لهذا النظام</a>
+    </div>
+  </div>
+</section>
+
+<!-- USE CASES -->
+<section class="section" id="uses">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="eyebrow">لمن نركّب؟</p>
+      <h2>نظام مختلف لكل احتياج</h2>
+    </header>
+    <div class="uses">
+      <article class="use reveal">
+        <svg viewBox="0 0 160 110" aria-hidden="true" class="use__art">
+          <path d="M20 95 H140" class="u-ground"/>
+          <rect x="40" y="52" width="80" height="43" class="u-line"/>
+          <path d="M34 54 L80 26 L126 54" class="u-line"/>
+          <path d="M56 46 L72 36 L96 36 L80 46 Z M82 47 L98 37 L118 49 L102 49Z" class="u-panel"/>
+          <rect x="72" y="70" width="16" height="25" class="u-line"/>
+        </svg>
+        <h3>المنازل والفلل</h3>
+        <p>تقليل الفاتورة الشهرية، وتشغيل التكييف في الصيف بدون قلق.</p>
+      </article>
+      <article class="use reveal">
+        <svg viewBox="0 0 160 110" aria-hidden="true" class="use__art">
+          <path d="M10 95 H150" class="u-ground"/>
+          <path d="M20 95 q20 -14 40 0 q20 -14 40 0" class="u-line"/>
+          <path d="M104 70 L124 46 L150 46 L130 70 Z" class="u-panel"/>
+          <path d="M127 70 V95" class="u-line"/>
+          <path d="M60 95 V64 H74 V95 M67 64 V54" class="u-line"/>
+          <path d="M74 74 H104" class="u-flow"/>
+        </svg>
+        <h3>المزارع وطلمبات الري</h3>
+        <p>تشغيل طلمبات الري نهارًا بدون سولار ولا مولّد.</p>
+      </article>
+      <article class="use reveal">
+        <svg viewBox="0 0 160 110" aria-hidden="true" class="use__art">
+          <path d="M14 95 H146" class="u-ground"/>
+          <rect x="26" y="48" width="108" height="47" class="u-line"/>
+          <path d="M26 48 L40 30 H120 L134 48" class="u-line"/>
+          <path d="M44 42 L52 32 H78 L70 42Z M84 42 L92 32 H118 L110 42Z" class="u-panel"/>
+          <rect x="40" y="62" width="34" height="20" class="u-line"/><rect x="88" y="62" width="32" height="33" class="u-line"/>
+        </svg>
+        <h3>المحلات والورش</h3>
+        <p>تكلفة تشغيل أقل للثلاجات والماكينات خلال ساعات العمل.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section section--sand" id="steps">
+  <div class="container">
+    <header class="sec-head reveal">
+      <p class="eyebrow">خطوات التركيب</p>
+      <h2>من أول مكالمة حتى أول كيلووات</h2>
+    </header>
+    <ol class="steps" id="stepsList">
+      <li class="step reveal"><span class="step__n">١</span><div><h3>اطلب معاينة</h3><p>املأ النموذج أو كلّمنا على واتساب، وأرسل صورة لآخر فاتورة كهرباء.</p></div></li>
+      <li class="step reveal"><span class="step__n">٢</span><div><h3>زيارة وقياس</h3><p>مهندس يعاين السطح، ويقيس المساحة والظل، ويراجع أحمال البيت.</p></div></li>
+      <li class="step reveal"><span class="step__n">٣</span><div><h3>تصميم وعرض سعر</h3><p>تستلم تصميمًا للنظام وعرض سعر مفصّلًا بكل مكوّن، ومدة استرداد التكلفة المتوقعة.</p></div></li>
+      <li class="step reveal"><span class="step__n">٤</span><div><h3>تركيب وتشغيل</h3><p>نركّب ونختبر النظام، ونربطه بتطبيق المتابعة على موبايلك.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container faq">
+    <header class="sec-head reveal">
+      <p class="eyebrow">أسئلة شائعة</p>
+      <h2>قبل أن تقرر</h2>
+    </header>
+    <div class="faq__list">
+      <details class="reveal" open>
+        <summary>هل تعمل الألواح في الأيام الغائمة؟</summary>
+        <p>نعم، لكن بإنتاج أقل. لهذا نحسب حجم النظام على متوسط السنة كلها وليس على يوم واحد.</p>
+      </details>
+      <details class="reveal">
+        <summary>كم تعيش الألواح؟</summary>
+        <p>الألواح الجيدة تعمل ٢٥ سنة أو أكثر، مع انخفاض بسيط وتدريجي في الكفاءة. والإنفرتر عمره عادةً بين ١٠ و١٥ سنة.</p>
+      </details>
+      <details class="reveal">
+        <summary>هل يحتاج النظام إلى صيانة؟</summary>
+        <p>صيانة خفيفة: تنظيف الألواح من الأتربة كل فترة، ومراجعة دورية للتوصيلات. ونتابع الإنتاج معك من التطبيق.</p>
+      </details>
+      <details class="reveal">
+        <summary>سطحي صغير، هل يمكن التركيب؟</summary>
+        <p>غالبًا نعم. أثناء المعاينة نحسب أكبر نظام يناسب المساحة المتاحة، حتى لو غطّى جزءًا فقط من استهلاكك.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container contact__grid">
+    <div class="contact__copy reveal">
+      <p class="eyebrow eyebrow--sun">معاينة مجانية</p>
+      <h2>خلّينا نشوف سطحك</h2>
+      <p>اترك بياناتك وسيصلك الرد على واتساب لتحديد موعد المعاينة. المعاينة والتصميم المبدئي مجانًا وبدون أي التزام.</p>
+      <ul class="contact__list">
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg><span>رد على واتساب خلال ساعات العمل</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><span>السبت – الخميس · ٩ص – ٦م</span></li>
+        <li><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg><span>نغطي الدلتا والقاهرة الكبرى</span></li>
+      </ul>
+    </div>
+
+    <form class="form reveal" id="leadForm" novalidate>
+      <div class="form__row">
+        <div class="field"><label for="fName">الاسم</label><input id="fName" name="name" autocomplete="name" required></div>
+        <div class="field"><label for="fCity">المحافظة / المدينة</label><input id="fCity" name="city" autocomplete="address-level2" required></div>
+      </div>
+      <div class="field">
+        <label for="fPlace">نوع المكان</label>
+        <select id="fPlace" name="place">
+          <option>منزل / شقة</option>
+          <option>فيلا</option>
+          <option>مزرعة / طلمبة ري</option>
+          <option>محل / ورشة</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="fNote">ملاحظات <small>(اختياري)</small></label>
+        <textarea id="fNote" name="note" rows="3" placeholder="مثلًا: الكهرباء بتقطع كتير، عايز نظام بالبطاريات"></textarea>
+      </div>
+      <label class="check"><input type="checkbox" id="fCalc" checked> <span>أرفق نتيجة الحاسبة (<b id="calcSummary">3.4 kW · 7 ألواح</b>)</span></label>
+      <button class="btn btn--sun btn--block" type="submit">أرسل الطلب عبر واتساب</button>
+      <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#top" class="brand brand--light">
+      <svg class="brand__mark" viewBox="0 0 36 36" aria-hidden="true"><circle cx="18" cy="18" r="18" class="brand__bg"/><path d="M6 24 A12 12 0 0 1 30 24" class="brand__arc"/><circle cx="18" cy="15" r="5" class="brand__sun"/></svg>
+      <span class="brand__name">ضيّ</span>
+    </a>
+    <p>نموذج تصميمي لعلامة تجارية افتراضية · تصميم وتطوير <a href="https://9amole.github.io/Abdullah-Salama-Portfolio/">عبدالله سلامة</a></p>
+  </div>
+</footer>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
