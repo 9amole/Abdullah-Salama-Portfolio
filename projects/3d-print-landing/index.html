@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>طبقة | استوديو طباعة ثلاثية الأبعاد</title>
+<meta name="description" content="طبقة — طباعة ثلاثية الأبعاد بتقنيتي FDM والريزن للطلاب والمصممين والورش الصغيرة. أرسل ملفك واستلم القطعة جاهزة.">
+<meta name="theme-color" content="#f3f1ec">
+<meta property="og:title" content="طبقة | استوديو طباعة ثلاثية الأبعاد">
+<meta property="og:description" content="أرسل ملفك، ونطبعه طبقة فوق طبقة.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23141414'/%3E%3Cpath d='M8 22h16M10 18h12M12 14h8M14 10h4' stroke='%23ff5b1f' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+</head>
+<body>
+
+<a class="skip" href="#main">تخطَّ إلى المحتوى</a>
+
+<header class="nav" id="nav">
+  <div class="container nav__inner">
+    <a href="#top" class="brand" aria-label="طبقة — الصفحة الرئيسية">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M8 22h16M10 18h12M12 14h8M14 10h4"/></svg>
+      <span class="brand__name">طبقة</span>
+      <span class="brand__tag mono">3D STUDIO</span>
+    </a>
+    <nav class="nav__links" aria-label="القائمة الرئيسية">
+      <a href="#service">الخدمة</a>
+      <a href="#work">نماذج</a>
+      <a href="#steps">طريقة الطلب</a>
+      <a href="#faq">أسئلة</a>
+    </nav>
+    <a href="#contact" class="btn btn--dark btn--sm">ابدأ طلبك</a>
+    <button class="nav__toggle" id="navToggle" aria-label="فتح القائمة" aria-expanded="false"><span></span><span></span></button>
+  </div>
+</header>
+
+<main id="main">
+
+<!-- HERO -->
+<section class="hero" id="top">
+  <div class="container hero__grid">
+    <div class="hero__copy">
+      <p class="eyebrow"><span class="dot"></span> المنصورة · نستقبل الطلبات الآن</p>
+      <h1 class="hero__title">فكرتك تتحوّل<br>إلى قطعة <span class="hl">بين يديك</span></h1>
+      <p class="hero__lead">نطبع نماذج المشاريع والقطع الهندسية والهدايا بالطباعة ثلاثية الأبعاد. أرسل الملف أو حتى صورة للفكرة، ونرد عليك بالسعر وموعد التسليم خلال ساعات.</p>
+      <div class="hero__actions">
+        <a href="#contact" class="btn btn--accent">ابدأ طلبك
+          <svg viewBox="0 0 20 20" aria-hidden="true"><path d="M12 4l-6 6 6 6"/></svg></a>
+        <a href="#work" class="btn btn--line">شاهد أعمالنا</a>
+      </div>
+      <dl class="hero__specs">
+        <div><dt>دقة الطبقة</dt><dd><span class="mono">0.05</span> مم</dd></div>
+        <div><dt>أكبر قطعة</dt><dd><span class="mono">25×25×30</span> سم</dd></div>
+        <div><dt>التسليم</dt><dd>من <span class="mono">24</span> ساعة</dd></div>
+      </dl>
+    </div>
+
+    <figure class="printer" aria-label="رسم متحرك لطابعة ثلاثية الأبعاد أثناء الطباعة">
+      <div class="printer__readout mono" aria-hidden="true">
+        <span>PLA · 210°C</span>
+        <span id="layerTxt">LAYER 000 / 240</span>
+      </div>
+      <svg viewBox="0 0 420 440" class="printer__svg" aria-hidden="true">
+        <defs>
+          <pattern id="layers" width="8" height="4" patternUnits="userSpaceOnUse">
+            <rect width="8" height="4" fill="#ff5b1f"/>
+            <rect y="3" width="8" height="1" fill="#d9440f"/>
+          </pattern>
+          <clipPath id="printClip"><rect id="clipRect" x="0" y="340" width="420" height="0"/></clipPath>
+        </defs>
+        <!-- frame -->
+        <g class="frame">
+          <rect x="40" y="30" width="16" height="360" rx="3"/>
+          <rect x="364" y="30" width="16" height="360" rx="3"/>
+          <rect x="40" y="22" width="340" height="16" rx="3"/>
+          <rect x="24" y="384" width="372" height="24" rx="5"/>
+        </g>
+        <!-- spool -->
+        <g class="spool">
+          <circle cx="398" cy="70" r="20"/><circle cx="398" cy="70" r="7" class="spool__hub"/>
+          <path d="M398 90 C 380 140, 300 110, 300 150" class="filament" id="filament"/>
+        </g>
+        <!-- bed -->
+        <rect x="90" y="340" width="240" height="10" rx="2" class="bed"/>
+        <rect x="110" y="350" width="200" height="34" class="bed__base"/>
+        <!-- ghost of final object -->
+        <path class="ghost" d="M170 340 L250 340 L246 318 C 262 290, 262 250, 242 220 C 232 205, 236 180, 244 160 L176 160 C 184 180, 188 205, 178 220 C 158 250, 158 290, 174 318 Z"/>
+        <!-- printed part -->
+        <path clip-path="url(#printClip)" fill="url(#layers)" d="M170 340 L250 340 L246 318 C 262 290, 262 250, 242 220 C 232 205, 236 180, 244 160 L176 160 C 184 180, 188 205, 178 220 C 158 250, 158 290, 174 318 Z"/>
+        <!-- gantry -->
+        <g id="gantry">
+          <rect x="56" y="-6" width="308" height="12" rx="3" class="rail"/>
+          <g id="head">
+            <rect x="-26" y="-26" width="52" height="38" rx="6" class="head"/>
+            <rect x="-14" y="-18" width="28" height="4" rx="2" class="head__vent"/>
+            <path d="M-7 12 L7 12 L3 22 L-3 22 Z" class="nozzle"/>
+            <circle cx="0" cy="25" r="2.6" class="nozzle__glow"/>
+          </g>
+        </g>
+      </svg>
+      <figcaption class="printer__cap mono"><span id="pct">0%</span><span class="bar"><i id="bar"></i></span></figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- STRIP -->
+<div class="strip" aria-hidden="true">
+  <div class="strip__track">
+    <span>مشاريع تخرّج</span><i>/</i><span>ماكيتات معمارية</span><i>/</i><span>قطع غيار</span><i>/</i><span>نماذج أولية للمنتجات</span><i>/</i><span>هدايا وتذكارات</span><i>/</i><span>مجسّمات تعليمية</span><i>/</i>
+    <span>مشاريع تخرّج</span><i>/</i><span>ماكيتات معمارية</span><i>/</i><span>قطع غيار</span><i>/</i><span>نماذج أولية للمنتجات</span><i>/</i><span>هدايا وتذكارات</span><i>/</i><span>مجسّمات تعليمية</span><i>/</i>
+  </div>
+</div>
+
+<!-- SERVICE -->
+<section class="section" id="service">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="label"><span class="mono">01</span> — الخدمة</p>
+      <h2>ما هي الطباعة ثلاثية الأبعاد؟</h2>
+      <p class="sec-head__lead">تبني الطابعة القطعة من ملف رقمي، طبقة رقيقة فوق طبقة، حتى تكتمل. هذا يعني أنك لا تحتاج إلى قالب أو مصنع لتصنع قطعة واحدة، فتحصل على نموذجك بسرعة وبتكلفة مناسبة حتى لو كانت قطعة واحدة فقط.</p>
+    </div>
+
+    <div class="tech">
+      <article class="tech__card reveal">
+        <div class="tech__top">
+          <h3>طباعة الخيوط <span class="mono">FDM</span></h3>
+          <p>الأنسب للقطع الكبيرة والعملية: قطع غيار، حوامل، أجزاء ميكانيكية، ومجسّمات المشاريع.</p>
+        </div>
+        <ul class="spec">
+          <li><span>الخامات</span><b class="mono">PLA · PETG · TPU</b></li>
+          <li><span>دقة الطبقة</span><b><span class="mono">0.1 – 0.3</span> مم</b></li>
+          <li><span>أكبر حجم</span><b><span class="mono">25×25×30</span> سم</b></li>
+          <li><span>التكلفة</span><b>اقتصادية</b></li>
+        </ul>
+      </article>
+      <article class="tech__card tech__card--dark reveal">
+        <div class="tech__top">
+          <h3>طباعة الريزن <span class="mono">SLA</span></h3>
+          <p>للتفاصيل الدقيقة والأسطح الناعمة: مجسّمات، إكسسوارات، نماذج أسنان، وقطع عرض.</p>
+        </div>
+        <ul class="spec">
+          <li><span>الخامات</span><b class="mono">Standard · ABS-like</b></li>
+          <li><span>دقة الطبقة</span><b><span class="mono">0.05</span> مم</b></li>
+          <li><span>أكبر حجم</span><b><span class="mono">13×8×16</span> سم</b></li>
+          <li><span>التشطيب</span><b>ناعم جدًا</b></li>
+        </ul>
+      </article>
+    </div>
+
+    <ul class="perks">
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l5 5L20 6"/></svg><div><b>مراجعة الملف مجانًا</b><span>نتأكد أن التصميم قابل للطباعة قبل أن تدفع.</span></div></li>
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg><div><b>سعر واضح وسريع</b><span>عرض سعر خلال ساعات، دون رسوم مخفية.</span></div></li>
+      <li class="reveal"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/></svg><div><b>تشطيب حسب الطلب</b><span>صنفرة ودهان ومعالجة للأسطح عند الحاجة.</span></div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- WORK -->
+<section class="section section--alt" id="work">
+  <div class="container">
+    <div class="sec-head sec-head--row reveal">
+      <div>
+        <p class="label"><span class="mono">02</span> — نماذج</p>
+        <h2>ماذا يمكن أن نطبع لك؟</h2>
+      </div>
+      <p class="sec-head__lead">أمثلة لأنواع القطع التي نستقبلها كثيرًا.</p>
+    </div>
+
+    <div class="work">
+      <figure class="work__item reveal">
+        <div class="work__art">
+          <svg viewBox="0 0 200 160" aria-hidden="true">
+            <g class="draw">
+              <path d="M100 30 l8 0 3 12 10 4 10-7 11 11-7 10 4 10 12 3 0 16-12 3-4 10 7 10-11 11-10-7-10 4-3 12-16 0-3-12-10-4-10 7-11-11 7-10-4-10-12-3 0-16 12-3 4-10-7-10 11-11 10 7 10-4 3-12z"/>
+              <circle cx="104" cy="80" r="18"/>
+            </g>
+            <g class="dim"><path d="M50 140 H158"/><path d="M50 135 v10 M158 135 v10"/></g>
+            <text x="104" y="155" class="dim__t">Ø 108</text>
+          </svg>
+        </div>
+        <figcaption><b>قطع ميكانيكية</b><span class="mono">PETG · FDM</span></figcaption>
+      </figure>
+
+      <figure class="work__item reveal">
+        <div class="work__art">
+          <svg viewBox="0 0 200 160" aria-hidden="true">
+            <g class="draw">
+              <path d="M40 120 L100 90 L160 120 L100 150 Z"/>
+              <path d="M60 110 V60 L100 40 L140 60 V110"/><path d="M100 40 V95"/>
+              <path d="M70 70 h12 v14 h-12z M118 70 h12 v14 h-12z M70 92 h12 v12 h-12z"/>
+              <path d="M60 60 L100 80 L140 60"/>
+            </g>
+            <g class="dim"><path d="M172 60 V120"/><path d="M167 60 h10 M167 120 h10"/></g>
+            <text x="186" y="94" class="dim__t" transform="rotate(-90 186 94)">1:200</text>
+          </svg>
+        </div>
+        <figcaption><b>ماكيتات معمارية</b><span class="mono">RESIN · SLA</span></figcaption>
+      </figure>
+
+      <figure class="work__item reveal">
+        <div class="work__art">
+          <svg viewBox="0 0 200 160" aria-hidden="true">
+            <g class="draw">
+              <path d="M60 130 H140 L130 120 H70 Z"/>
+              <path d="M75 120 L95 50 H112 L100 120"/>
+              <rect x="88" y="22" width="44" height="80" rx="6" transform="rotate(14 110 62)"/>
+            </g>
+            <g class="dim"><path d="M40 130 V50"/><path d="M35 130 h10 M35 50 h10"/></g>
+            <text x="22" y="94" class="dim__t" transform="rotate(-90 22 94)">120</text>
+          </svg>
+        </div>
+        <figcaption><b>نماذج أولية لمنتجات</b><span class="mono">PLA · FDM</span></figcaption>
+      </figure>
+
+      <figure class="work__item reveal">
+        <div class="work__art">
+          <svg viewBox="0 0 200 160" aria-hidden="true">
+            <g class="draw">
+              <path d="M78 135 H122 L120 125 C 132 108, 132 84, 118 66 C 112 58, 114 46, 118 36 H82 C 86 46, 88 58, 82 66 C 68 84, 68 108, 80 125 Z"/>
+              <path d="M74 110 H126 M71 95 H129 M76 80 H124"/>
+            </g>
+            <g class="dim"><path d="M150 36 V135"/><path d="M145 36 h10 M145 135 h10"/></g>
+            <text x="166" y="90" class="dim__t" transform="rotate(-90 166 90)">99 mm</text>
+          </svg>
+        </div>
+        <figcaption><b>هدايا وديكور</b><span class="mono">SILK PLA · FDM</span></figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<!-- STEPS -->
+<section class="section" id="steps">
+  <div class="container">
+    <div class="sec-head reveal">
+      <p class="label"><span class="mono">03</span> — طريقة الطلب</p>
+      <h2>أربع خطوات من الملف إلى بابك</h2>
+    </div>
+    <ol class="steps" id="stepsList">
+      <li class="step reveal">
+        <span class="step__n mono">01</span>
+        <h3>أرسل ملفك</h3>
+        <p>ملف <span class="mono">STL</span> أو <span class="mono">OBJ</span> أو <span class="mono">STEP</span>. وإن لم يكن لديك ملف، أرسل صورة أو رسمًا بالمقاسات وسنساعدك.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__n mono">02</span>
+        <h3>استلم عرض السعر</h3>
+        <p>نراجع التصميم، ونقترح الخامة المناسبة، ونرسل لك السعر وموعد التسليم.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__n mono">03</span>
+        <h3>نطبع ونراجع الجودة</h3>
+        <p>نبدأ الطباعة بعد موافقتك، ونفحص المقاسات والتشطيب قبل التغليف.</p>
+      </li>
+      <li class="step reveal">
+        <span class="step__n mono">04</span>
+        <h3>استلم قطعتك</h3>
+        <p>استلام من المعمل أو توصيل لباب بيتك.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section section--alt" id="faq">
+  <div class="container faq">
+    <div class="sec-head reveal">
+      <p class="label"><span class="mono">04</span> — أسئلة شائعة</p>
+      <h2>قبل أن تطلب</h2>
+      <p class="sec-head__lead">لم تجد إجابتك؟ <a href="#contact" class="link">راسلنا مباشرة</a>.</p>
+    </div>
+    <div class="faq__list">
+      <details class="reveal">
+        <summary>ليس لدي ملف ثلاثي الأبعاد، هل يمكنكم المساعدة؟</summary>
+        <p>نعم. أرسل صورًا أو رسمًا يدويًا بالمقاسات، ونصمم لك الملف مقابل رسوم بسيطة تُحدَّد حسب درجة التعقيد.</p>
+      </details>
+      <details class="reveal">
+        <summary>كيف يُحسب السعر؟</summary>
+        <p>يعتمد السعر على وزن الخامة المستهلكة، ومدة الطباعة، ونوع التشطيب. ستعرف السعر النهائي قبل البدء.</p>
+      </details>
+      <details class="reveal">
+        <summary>كم تستغرق الطباعة؟</summary>
+        <p>أغلب القطع الصغيرة تكون جاهزة خلال يوم إلى يومين. القطع الكبيرة أو الطلبات المتعددة قد تحتاج وقتًا أطول، وسنخبرك بالموعد مسبقًا.</p>
+      </details>
+      <details class="reveal">
+        <summary>هل تقبلون طلبات بكميات؟</summary>
+        <p>نعم، نطبع من قطعة واحدة إلى دفعات صغيرة، مع خصم على الكميات.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="section contact" id="contact">
+  <div class="container contact__grid">
+    <div class="contact__info reveal">
+      <p class="label label--light"><span class="mono">05</span> — تواصل معنا</p>
+      <h2>جاهز تبدأ؟</h2>
+      <p>اكتب لنا تفاصيل القطعة، وسيصلك الرد على واتساب.</p>
+      <ul class="channels">
+        <li><a href="#orderForm" class="channel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>
+          <span><b>واتساب</b><small>نرد عادةً خلال ساعة في أوقات العمل</small></span></a></li>
+        <li><div class="channel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 8v4l3 2"/></svg>
+          <span><b>مواعيد العمل</b><small>السبت – الخميس · ١٠ص – ١٠م</small></span></div></li>
+        <li><div class="channel">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-6.2-7-11a7 7 0 0 1 14 0c0 4.8-7 11-7 11z"/><circle cx="12" cy="10" r="2.5"/></svg>
+          <span><b>المعمل</b><small>المنصورة، الدقهلية · استلام أو توصيل</small></span></div></li>
+      </ul>
+    </div>
+
+    <form class="form reveal" id="orderForm" novalidate>
+      <div class="field">
+        <label for="fName">الاسم</label>
+        <input id="fName" name="name" autocomplete="name" required>
+      </div>
+      <div class="field">
+        <label for="fType">نوع الطلب</label>
+        <select id="fType" name="type">
+          <option>مشروع تخرّج / دراسة</option>
+          <option>قطعة غيار</option>
+          <option>نموذج أولي لمنتج</option>
+          <option>هدية أو ديكور</option>
+          <option>أخرى</option>
+        </select>
+      </div>
+      <fieldset class="field">
+        <legend>التقنية</legend>
+        <div class="seg">
+          <input type="radio" name="tech" id="tFdm" value="FDM" checked><label for="tFdm">FDM</label>
+          <input type="radio" name="tech" id="tSla" value="Resin"><label for="tSla">ريزن</label>
+          <input type="radio" name="tech" id="tNo" value="غير متأكد"><label for="tNo">لا أعرف</label>
+        </div>
+      </fieldset>
+      <div class="field">
+        <label for="fMsg">تفاصيل القطعة</label>
+        <textarea id="fMsg" name="msg" rows="4" placeholder="المقاسات التقريبية، العدد، اللون، وأي ملاحظات" required></textarea>
+      </div>
+      <button class="btn btn--accent btn--block" type="submit">أرسل الطلب عبر واتساب</button>
+      <p class="form__note" id="formNote" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <div class="container footer__inner">
+    <a href="#top" class="brand brand--light">
+      <svg class="brand__mark" viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7"/><path d="M8 22h16M10 18h12M12 14h8M14 10h4"/></svg>
+      <span class="brand__name">طبقة</span>
+    </a>
+    <p class="footer__note">نموذج تصميمي لعلامة تجارية افتراضية · تصميم وتطوير <a href="https://9amole.github.io/Abdullah-Salama-Portfolio/">عبدالله سلامة</a></p>
+    <a href="#top" class="footer__top mono">↑ TOP</a>
+  </div>
+</footer>
+
+<a href="#contact" class="fab" aria-label="ابدأ طلبك">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20l1.3-4A8 8 0 1 1 8 18.7z"/></svg>
+</a>
+
+<script src="assets/js/main.js" defer></script>
+</body>
+</html>
