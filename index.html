@@ -1,389 +1,233 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="ar" dir="rtl">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Abdullah Ahmed Salama — Data Analyst & Data Scientist</title>
-  <link rel="stylesheet" href="style.css" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عبدالله سلامة | Abdullah Salama</title>
+<meta name="description" content="Abdullah Salama — one-page websites, data analysis & dashboards, and Arabic ⇄ English translation.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fafaf7;--surface:#fff;--ink:#14161f;--muted:#5f6476;--line:#e6e6e0;--brand:#2f5bea;--brand-soft:#eaf0ff;--web:#e8590c;--data:#0c8599;--tr:#7048e8}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Cairo","Inter",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+html[lang=en] body{font-family:"Inter","Cairo",system-ui,sans-serif}
+html[lang=ar] .en,html[lang=en] .ar{display:none!important}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+nav{position:sticky;top:0;z-index:10;background:rgba(250,250,247,.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;justify-content:space-between;align-items:center;height:64px}
+.logo{font-weight:800;font-size:1.1rem}
+.logo i{font-style:normal;color:var(--brand)}
+.links{display:flex;gap:24px;color:var(--muted);font-weight:600}
+.links a:hover{color:var(--ink)}
+.lang{font:inherit;font-weight:700;background:var(--surface);border:1px solid var(--line);border-radius:999px;padding:6px 14px;cursor:pointer;color:var(--brand)}
+
+.hero{padding:80px 0 60px}
+.avail{display:inline-flex;align-items:center;gap:8px;background:var(--surface);border:1px solid var(--line);padding:5px 14px;border-radius:999px;font-size:.88rem;font-weight:600}
+.avail::before{content:"";width:8px;height:8px;border-radius:50%;background:#2fb344;box-shadow:0 0 0 4px #2fb34433}
+h1{font-size:clamp(2.1rem,5.2vw,3.5rem);line-height:1.2;margin:20px 0 16px;font-weight:800;max-width:820px}
+h1 em{font-style:normal;background:linear-gradient(90deg,var(--web),var(--data),var(--tr));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:1.15rem;color:var(--muted);max-width:640px}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{padding:12px 24px;border-radius:12px;font-weight:700;display:inline-block;transition:.2s}
+.btn.p{background:var(--ink);color:#fff}.btn.p:hover{background:var(--brand)}
+.btn.g{border:1.5px solid var(--line);background:var(--surface)}.btn.g:hover{border-color:var(--ink)}
+
+section{padding:60px 0}
+.sh{margin-bottom:30px}
+.sh h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:800}
+.sh p{color:var(--muted)}
+.services{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.svc{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:26px;border-top:4px solid var(--c)}
+.svc .ic{font-size:1.8rem}
+.svc h3{margin:10px 0 6px;font-size:1.2rem}
+.svc p{color:var(--muted);font-size:.96rem}
+.svc ul{margin-top:12px;padding-inline-start:18px;color:var(--muted);font-size:.92rem}
+
+.filters{display:flex;gap:8px;margin-bottom:22px;flex-wrap:wrap}
+.filters button{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--surface);padding:7px 18px;border-radius:999px;cursor:pointer;color:var(--muted)}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.projects{display:grid;grid-template-columns:repeat(2,1fr);gap:18px}
+.pj{background:var(--surface);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+.pj:hover{transform:translateY(-4px);box-shadow:0 18px 40px -20px rgba(20,22,31,.25)}
+.thumb{height:190px;display:grid;place-items:center;font-size:3.4rem;position:relative;overflow:hidden}
+.thumb img{width:100%;height:100%;object-fit:cover;object-position:top}
+.pj .body{padding:20px 22px;display:flex;flex-direction:column;gap:8px;flex:1}
+.cat{font-size:.75rem;font-weight:800;color:var(--c);letter-spacing:.04em}
+.pj h3{font-size:1.15rem}
+.pj p{color:var(--muted);font-size:.94rem}
+.pj .res{font-size:.9rem;background:var(--bg);border-radius:10px;padding:8px 12px}
+.tags{display:flex;gap:6px;flex-wrap:wrap}
+.tags span{font-size:.75rem;background:var(--bg);border:1px solid var(--line);padding:2px 9px;border-radius:999px;color:var(--muted);font-family:"Inter",sans-serif}
+.pj .lnks{display:flex;gap:16px;margin-top:auto;padding-top:8px;font-weight:700;font-size:.92rem}
+.pj .lnks a{color:var(--brand)}
+
+.about{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:start}
+.about p{color:var(--muted);margin-bottom:12px}
+.facts{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:22px}
+.facts li{list-style:none;display:flex;gap:10px;padding:8px 0;border-bottom:1px dashed var(--line)}
+.facts li:last-child{border:0}
+.how{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;counter-reset:s}
+.how div{background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:18px;counter-increment:s}
+.how div::before{content:counter(s);display:grid;place-items:center;width:30px;height:30px;border-radius:50%;background:var(--brand-soft);color:var(--brand);font-weight:800;margin-bottom:8px}
+.how h4{margin-bottom:4px}
+.how p{color:var(--muted);font-size:.9rem}
+
+.contact{background:var(--ink);color:#fff;border-radius:28px;padding:44px;text-align:center}
+.contact p{color:#b7bccb;margin:8px 0 22px}
+.contact .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+.contact a{background:#262a38;padding:11px 20px;border-radius:12px;font-weight:700}
+.contact a:hover{background:var(--brand)}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:30px 0}
+
+@media (max-width:860px){.services,.projects,.about{grid-template-columns:1fr}.how{grid-template-columns:1fr 1fr}.links{display:none}.contact{padding:30px 20px}}
+</style>
 </head>
 <body>
+<nav><div class="wrap">
+  <a class="logo" href="#"><span class="ar">عبدالله <i>سلامة</i></span><span class="en">Abdullah <i>Salama</i></span></a>
+  <div class="links">
+    <a href="#services"><span class="ar">الخدمات</span><span class="en">Services</span></a>
+    <a href="#work"><span class="ar">الأعمال</span><span class="en">Work</span></a>
+    <a href="#about"><span class="ar">عني</span><span class="en">About</span></a>
+    <a href="#contact"><span class="ar">تواصل</span><span class="en">Contact</span></a>
+  </div>
+  <button class="lang" id="lang">EN</button>
+</div></nav>
 
-  <!-- ───── NAV ───── -->
-  <nav id="navbar">
-    <div class="nav-inner">
-      <a class="nav-logo" href="#hero">Abdullah<span class="accent">.</span></a>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <button class="hamburger" id="hamburger" aria-label="Toggle menu">
-        <span></span><span></span><span></span>
-      </button>
+<header class="hero"><div class="wrap">
+  <span class="avail"><span class="ar">متاح لمشاريع جديدة</span><span class="en">Available for new projects</span></span>
+  <h1><span class="ar">بحوّل أفكارك لـ<em>مواقع وبيانات ونصوص</em> بتشتغل لصالحك</span><span class="en">I turn your ideas into <em>websites, data and words</em> that work for you</span></h1>
+  <p class="lead"><span class="ar">مواقع صفحة واحدة (دعوات أفراح وصفحات هبوط)، تحليل بيانات ولوحات تحكم، وترجمة بين العربي والإنجليزي. طالب علوم حاسب في جامعة المنصورة، وكل شغلي موجود تحت تقدر تجربه بنفسك.</span><span class="en">One-page websites (wedding invitations and landing pages), data analysis and dashboards, and Arabic ⇄ English translation. I'm a Computer Science student at Mansoura University, and every project below is live for you to try.</span></p>
+  <div class="cta">
+    <a class="btn p" href="#work"><span class="ar">شوف أعمالي</span><span class="en">See my work</span></a>
+    <a class="btn g" href="#contact"><span class="ar">ابدأ مشروعك</span><span class="en">Start a project</span></a>
+  </div>
+</div></header>
+
+<section id="services"><div class="wrap">
+  <div class="sh"><h2><span class="ar">بقدّم إيه؟</span><span class="en">What I do</span></h2></div>
+  <div class="services">
+    <div class="svc" style="--c:var(--web)"><div class="ic">🌐</div>
+      <h3><span class="ar">مواقع صفحة واحدة</span><span class="en">One-page websites</span></h3>
+      <p><span class="ar">دعوات أفراح إلكترونية وصفحات هبوط للمشاريع، شغالة على الموبايل وسريعة.</span><span class="en">Digital wedding invitations and landing pages for businesses, fast and mobile-friendly.</span></p>
+      <ul><li><span class="ar">عداد تنازلي، تأكيد حضور، خرائط، موسيقى</span><span class="en">Countdown, RSVP, maps, music</span></li><li><span class="ar">عربي وإنجليزي</span><span class="en">Arabic &amp; English</span></li><li><span class="ar">رفع مجاني على الإنترنت</span><span class="en">Free hosting setup</span></li></ul></div>
+    <div class="svc" style="--c:var(--data)"><div class="ic">📊</div>
+      <h3><span class="ar">تحليل بيانات ولوحات تحكم</span><span class="en">Data analysis &amp; dashboards</span></h3>
+      <p><span class="ar">بنضّف بياناتك ونحللها ونطلع منها رسوم وتقارير تساعدك تاخد قرار.</span><span class="en">I clean and analyse your data, then turn it into charts and reports that support decisions.</span></p>
+      <ul><li>Python • pandas • SQL</li><li>Power BI • Excel</li><li><span class="ar">نماذج تنبؤ بسيطة (Machine Learning)</span><span class="en">Simple predictive models (ML)</span></li></ul></div>
+    <div class="svc" style="--c:var(--tr)"><div class="ic">✍️</div>
+      <h3><span class="ar">ترجمة وكتابة</span><span class="en">Translation &amp; writing</span></h3>
+      <p><span class="ar">ترجمة بين العربي والإنجليزي بتحافظ على المعنى والنبرة، مش ترجمة حرفية.</span><span class="en">Arabic ⇄ English translation that keeps meaning and tone, not word-for-word.</span></p>
+      <ul><li><span class="ar">أوصاف منتجات ومحتوى سوشيال</span><span class="en">Product copy &amp; social posts</span></li><li><span class="ar">إيميلات ومستندات أعمال</span><span class="en">Business emails &amp; documents</span></li><li><span class="ar">توطين واجهات التطبيقات</span><span class="en">App UI localization</span></li></ul></div>
+  </div>
+</div></section>
+
+<section id="work" style="background:var(--surface);border-block:1px solid var(--line)"><div class="wrap">
+  <div class="sh"><h2><span class="ar">أعمالي</span><span class="en">Selected work</span></h2><p><span class="ar">كل مشروع تقدر تفتحه وتجربه.</span><span class="en">Every project is live; open it and try it.</span></p></div>
+  <div class="filters" id="filters">
+    <button class="on" data-f="all"><span class="ar">الكل</span><span class="en">All</span></button>
+    <button data-f="web"><span class="ar">مواقع</span><span class="en">Websites</span></button>
+    <button data-f="data"><span class="ar">بيانات</span><span class="en">Data</span></button>
+    <button data-f="tr"><span class="ar">ترجمة</span><span class="en">Translation</span></button>
+  </div>
+  <div class="projects" id="projects"></div>
+</div></section>
+
+<section id="about"><div class="wrap about">
+  <div>
+    <div class="sh"><h2><span class="ar">عني</span><span class="en">About me</span></h2></div>
+    <p><span class="ar">أنا عبدالله، طالب علوم حاسب (نظم معلومات) في جامعة المنصورة، دفعة ٢٠٢٧. بحب أبني حاجات الناس تستخدمها فعلًا: موقع فرح لأخويا، أو لوحة بيانات بتفهّمك الأرقام في دقيقة.</span><span class="en">I'm Abdullah, a Computer Science (Information Systems) student at Mansoura University, class of 2027. I like building things people actually use, like a wedding site for my brother or a dashboard that explains numbers in a minute.</span></p>
+    <p><span class="ar">بدرس حاليًا مسار AWS لهندسة تعلم الآلة، وأنا المدير التقني في فريق MEGA التطوعي اللي بيعلّم طلبة الكلية مهارات تقنية.</span><span class="en">I'm currently on the AWS Machine Learning Engineer track, and I'm Technical Manager of MEGA Team, a volunteer team that teaches technical skills to CS students.</span></p>
+    <div class="sh" style="margin:26px 0 14px"><h3><span class="ar">طريقة الشغل</span><span class="en">How I work</span></h3></div>
+    <div class="how">
+      <div><h4><span class="ar">نتفاهم</span><span class="en">Brief</span></h4><p><span class="ar">بنحدد المطلوب بالظبط</span><span class="en">We agree on exact scope</span></p></div>
+      <div><h4><span class="ar">مسودة</span><span class="en">Draft</span></h4><p><span class="ar">بتشوف نسخة أولى بسرعة</span><span class="en">You see a first version fast</span></p></div>
+      <div><h4><span class="ar">تعديلات</span><span class="en">Revise</span></h4><p><span class="ar">بنعدّل لحد ما يعجبك</span><span class="en">We refine until it's right</span></p></div>
+      <div><h4><span class="ar">تسليم</span><span class="en">Deliver</span></h4><p><span class="ar">ملفات ورابط شغال</span><span class="en">Files plus a live link</span></p></div>
     </div>
-  </nav>
+  </div>
+  <ul class="facts">
+    <li>🎓 <span><span class="ar">بكالوريوس علوم حاسب، جامعة المنصورة (٢٠٢٧)</span><span class="en">B.Sc. Computer Science, Mansoura University (2027)</span></span></li>
+    <li>☁️ <span><span class="ar">مسار AWS لهندسة تعلم الآلة (مستمر)</span><span class="en">AWS ML Engineer track (ongoing)</span></span></li>
+    <li>📈 <span><span class="ar">تدريب علوم بيانات، Truvian Intelligence</span><span class="en">Data Science training, Truvian Intelligence</span></span></li>
+    <li>🛰️ <span><span class="ar">مشروع في تحدي ناسا Space Apps 2026</span><span class="en">NASA Space Apps 2026 project</span></span></li>
+    <li>🧑‍🏫 <span><span class="ar">المدير التقني لفريق MEGA</span><span class="en">Technical Manager, MEGA Team</span></span></li>
+    <li>🗣️ <span><span class="ar">عربي (لغة أم) • إنجليزي</span><span class="en">Arabic (native) • English</span></span></li>
+  </ul>
+</div></section>
 
-  <!-- ───── HERO ───── -->
-  <section id="hero">
-    <div class="hero-content">
-      <p class="hero-greeting">👋 Hi, I'm</p>
-      <h1 class="hero-name">Abdullah Ahmed<br /><span class="gradient-text">Salama</span></h1>
-      <p class="hero-subtitle typewriter" id="typewriter"></p>
-      <p class="hero-desc">
-        Computer Science student at Mansoura University specializing in Information Systems.
-        Passionate about turning raw data into actionable insights.
-      </p>
-      <div class="hero-cta">
-        <a href="#projects" class="btn btn-primary">View My Work</a>
-        <a href="#contact" class="btn btn-outline">Get In Touch</a>
-      </div>
-      <div class="hero-socials">
-        <a href="mailto:9amohead@gmail.com" aria-label="Email" class="social-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/abdullah-ahmed-salama4002" target="_blank" aria-label="LinkedIn" class="social-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
-        </a>
-        <a href="https://github.com/9amole" target="_blank" aria-label="GitHub" class="social-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-        </a>
-      </div>
+<section id="contact"><div class="wrap">
+  <div class="contact">
+    <h2><span class="ar">عندك مشروع؟</span><span class="en">Have a project in mind?</span></h2>
+    <p><span class="ar">ابعتلي فكرتك، وهرد عليك في نفس اليوم بخطة وسعر واضح.</span><span class="en">Send me your idea and I'll reply the same day with a clear plan and price.</span></p>
+    <div class="row">
+      <a href="mailto:9amohead@gmail.com">✉️ Email</a>
+      <a href="https://github.com/9amole" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/abdullah-ahmed-salama4002" target="_blank" rel="noopener">LinkedIn</a>
     </div>
-    <div class="hero-visual">
-      <div class="avatar-ring">
-        <div class="avatar-inner">
-          <span class="avatar-initials">AA</span>
-        </div>
-        <svg class="ring-svg" viewBox="0 0 200 200">
-          <circle cx="100" cy="100" r="90" fill="none" stroke="url(#ringGrad)" stroke-width="2" stroke-dasharray="8 4"/>
-        </svg>
-        <div class="orbit-dot" style="--angle:0deg"></div>
-        <div class="orbit-dot" style="--angle:120deg"></div>
-        <div class="orbit-dot" style="--angle:240deg"></div>
-      </div>
-      <div class="floating-badge badge-1">
-        <span class="badge-icon">🐍</span> Python
-      </div>
-      <div class="floating-badge badge-2">
-        <span class="badge-icon">📊</span> Power BI
-      </div>
-      <div class="floating-badge badge-3">
-        <span class="badge-icon">☁️</span> AWS
-      </div>
-      <div class="floating-badge badge-4">
-        <span class="badge-icon">🗄️</span> SQL
-      </div>
+  </div>
+</div></section>
+
+<footer>© 2026 <span class="ar">عبدالله سلامة</span><span class="en">Abdullah Salama</span></footer>
+
+<script>
+const P=[
+ {c:"web",img:"img/wedding-family.png",ic:"💍",bg:"#fdf0e6",
+  ar:["دعوة فرح إلكترونية (حقيقية)","موقع دعوة لفرح أخويا عبدالرحمن: فتح الدعوة بالضغط على خاتم، موسيقى، عداد تنازلي، صور الطفولة، خريطة المكان، ورسائل التهاني من المعازيم.","معمول لفرح حقيقي (٢٩ أكتوبر ٢٠٢٦) ومنشور أونلاين"],
+  en:["Real wedding invitation website","Invitation site for my brother Abdelrhman's wedding, with a ring-tap opening, music, countdown, childhood photos, venue map and a guest wishes wall.","Built for a real wedding (29 Oct 2026) and live online"],
+  tags:["HTML","CSS","JavaScript","RTL"],live:"https://9amole.github.io/abdelrhman-rwan-wedding/",code:"https://github.com/9amole/abdelrhman-rwan-wedding"},
+ {c:"web",img:"img/wedding-rsvp.png",ic:"💌",bg:"#eef0e6",
+  ar:["قالب دعوة فرح بتأكيد حضور","قالب ثنائي اللغة: فتح ظرف، رابط شخصي لكل ضيف (?guest=الاسم)، تأكيد حضور بعدد الأشخاص، إضافة للتقويم، وأسئلة متكررة.","قالب جاهز يتعدّل لأي عروسين في يوم واحد"],
+  en:["Wedding template with RSVP","Bilingual template with an envelope opening, a personal link per guest (?guest=Name), RSVP with headcount, add-to-calendar and an FAQ.","Ready to customise for any couple within a day"],
+  tags:["HTML","CSS","JavaScript","i18n"],live:"projects/wedding-rsvp/?guest=Ahmed"},
+ {c:"web",img:"img/cafe-landing.png",ic:"☕",bg:"#f7efe4",
+  ar:["صفحة هبوط لكافيه (نموذج تصميمي)","صفحة هبوط لعلامة خيالية: منيو تفاعلي بتبويبات، كود خصم، مواعيد عمل بتعلّم على اليوم الحالي، ونموذج حجز طاولة. عربي وإنجليزي.","مصممة عشان تحوّل الزائر لعميل (حجز أو زيارة)"],
+  en:["Café landing page (concept)","Landing page for a fictional brand with a tabbed interactive menu, discount code, opening hours that highlight today, and a table booking form. Arabic and English.","Designed to turn visitors into customers (bookings and visits)"],
+  tags:["HTML","CSS","JavaScript","Responsive"],live:"projects/cafe-landing/"},
+ {c:"data",img:"img/dashboard.png",ic:"📊",bg:"#e6f4f6",
+  ar:["لوحة الاقتصاد الرقمي العربي","لوحة تفاعلية لـ١٨ دولة عربية من بيانات البنك الدولي: انتشار الإنترنت والموبايل والدخل وبطالة الشباب، ٢٠١٠–٢٠٢٤، مع ملاحظات بتتحسب تلقائيًا.","فلترة حسب السنة والدولة، وجدول قابل للترتيب، وعربي وإنجليزي"],
+  en:["Arab Digital Economy Dashboard","Interactive dashboard for 18 Arab countries using World Bank data: internet and mobile adoption, income and youth unemployment, 2010–2024, with auto-computed insights.","Year and country filters, sortable table, Arabic and English"],
+  tags:["Python","Chart.js","World Bank API","Data viz"],live:"projects/arab-digital-dashboard/"},
+ {c:"data",ic:"📉",bg:"#e8f6ee",
+  ar:["التنبؤ بفقد العملاء (Churn)","نموذج تعلم آلة بيتنبأ بالعملاء اللي هيسيبوا شركة اتصالات (٧٠٤٣ عميل)، مع شرح أسباب كل توقع (SHAP) وتطبيق Streamlit.","ROC-AUC ‎≈ 0.84، بيلقط حوالي ٨٠٪ من العملاء اللي هيمشوا، وحملة الاحتفاظ الموجّهة بالنموذج وفرت تقديريًا أكتر من حملة لكل العملاء"],
+  en:["Customer churn prediction","ML model that predicts which telecom customers (7,043) will leave, with SHAP explanations for each prediction and a Streamlit app.","ROC-AUC ≈ 0.84 and ~80% of churners caught; the model-targeted retention campaign was estimated to save more than a blanket one"],
+  tags:["Python","XGBoost","SHAP","Streamlit"],code:"https://github.com/9amole/telco-churn-prediction"},
+ {c:"data",ic:"💳",bg:"#eef1fb",
+  ar:["تحليل الاحتيال في بطاقات الائتمان","تنضيف وتحليل ٢٨٣ ألف معاملة (٠٫١٦٧٪ منها احتيال)، وتحديد أكتر المتغيرات المرتبطة بالاحتيال.","٩ رسومات بيانية بتوضح أنماط الاحتيال"],
+  en:["Credit card fraud analysis","Cleaned and analysed 283K transactions (0.167% fraud) and identified the features most linked to fraud.","9 charts that explain the fraud patterns"],
+  tags:["Python","pandas","Seaborn","EDA"],code:"https://github.com/9amole/Credit-card-fraud-analysis"},
+ {c:"data",ic:"🛰️",bg:"#f1ecfb",
+  ar:["URBANOVA — تحدي ناسا Space Apps 2026","منصة بتحلل الحرارة في المدن لأي قطعة أرض، باستخدام بيانات الأقمار الصناعية (Landsat) وبيانات المناخ من ناسا، وبتختبر هل التغيّر في المناخ حقيقي إحصائيًا.","اختبارات Mann-Kendall وSen's slope على بيانات من ٦ مصادر"],
+  en:["URBANOVA — NASA Space Apps 2026","Platform that analyses urban heat for any plot of land using satellite (Landsat) and NASA climate data, and tests whether climate trends are statistically real.","Mann-Kendall and Sen's slope trend tests on data from 6 sources"],
+  tags:["Python","Docker","Remote sensing","Statistics"],code:"https://github.com/9amole/Urbanova-nasa"},
+ {c:"tr",img:"img/translation.png",ic:"✍️",bg:"#f1edfd",
+  ar:["نماذج ترجمة وتوطين","٤ نماذج عربي ⇄ إنجليزي: وصف منتج، إيميل رسمي، منشور سوشيال، وواجهة تطبيق. مع ملاحظات بتشرح سبب كل اختيار.","بتوضح الفرق بين الترجمة الحرفية والترجمة اللي بتوصل المعنى"],
+  en:["Translation & localization samples","4 Arabic ⇄ English samples (product copy, a formal email, a social post and an app UI), with notes explaining each choice.","Shows the difference between literal translation and translation that carries the meaning"],
+  tags:["Arabic","English","Localization"],live:"projects/translation-samples/"}
+];
+const CAT={web:["مواقع","WEBSITES","var(--web)"],data:["بيانات","DATA","var(--data)"],tr:["ترجمة","TRANSLATION","var(--tr)"]};
+let lang="ar",f="all";
+const $=s=>document.querySelector(s);
+function draw(){
+  $("#projects").innerHTML=P.filter(p=>f==="all"||p.c===f).map(p=>{const t=p[lang];return `
+  <article class="pj" style="--c:${CAT[p.c][2]}">
+    <div class="thumb" style="background:${p.bg}">${p.img?`<img src="${p.img}" alt="${t[0]}" loading="lazy" onerror="this.replaceWith(document.createTextNode('${p.ic}'))">`:p.ic}</div>
+    <div class="body">
+      <span class="cat">${CAT[p.c][lang==="ar"?0:1]}</span>
+      <h3>${t[0]}</h3><p>${t[1]}</p>
+      <div class="res">✅ ${t[2]}</div>
+      <div class="tags">${p.tags.map(x=>`<span>${x}</span>`).join("")}</div>
+      <div class="lnks">${p.live?`<a href="${p.live}" target="_blank" rel="noopener">${lang==="ar"?"جرّب المشروع ↗":"Live demo ↗"}</a>`:""}${p.code?`<a href="${p.code}" target="_blank" rel="noopener">${lang==="ar"?"الكود ↗":"Code ↗"}</a>`:""}</div>
     </div>
-    <div class="scroll-indicator">
-      <div class="scroll-dot"></div>
-    </div>
-  </section>
-
-  <!-- ───── ABOUT ───── -->
-  <section id="about" class="section">
-    <div class="container">
-      <h2 class="section-title">About <span class="accent">Me</span></h2>
-      <div class="about-grid">
-        <div class="about-text">
-          <p>
-            I'm a <strong>Computer Science student</strong> at Mansoura University (graduating 2027),
-            specializing in Information Systems. I'm passionate about the entire data lifecycle — from
-            cleaning messy datasets to building compelling visualizations that tell a story.
-          </p>
-          <p>
-            My technical toolkit spans <strong>Python, SQL, Power BI, and AWS</strong>, with hands-on
-            experience in machine learning concepts and generative AI workflows including RAG architectures
-            and prompt engineering. I thrive at bridging the gap between raw data and actionable decisions.
-          </p>
-          <p>
-            Beyond code, I've served as <strong>Technical Manager & Vice Leader</strong> of MEGA Team,
-            where I learned how to lead, collaborate under pressure, and communicate technical ideas clearly.
-          </p>
-          <div class="about-stats">
-            <div class="stat-card">
-              <span class="stat-num">283K+</span>
-              <span class="stat-label">Transactions Analyzed</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-num">9</span>
-              <span class="stat-label">Statistical Visualizations</span>
-            </div>
-            <div class="stat-card">
-              <span class="stat-num">2027</span>
-              <span class="stat-label">Expected Graduation</span>
-            </div>
-          </div>
-        </div>
-        <div class="about-card">
-          <h3>Quick Info</h3>
-          <ul class="info-list">
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
-              Mansoura, Egypt
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg>
-              9amohead@gmail.com
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.63 3.38 2 2 0 0 1 3.6 1h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.6a16 16 0 0 0 6 6l.92-.92a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 21.73 16z"/></svg>
-              (+20) 109-192-9748
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10v6M2 10l10-5 10 5-10 5z"/><path d="M6 12v5c3 3 9 3 12 0v-5"/></svg>
-              Mansoura University — CS
-            </li>
-            <li>
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
-              Graduating 2027
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── SKILLS ───── -->
-  <section id="skills" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Technical <span class="accent">Skills</span></h2>
-      <div class="skills-grid">
-
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <span class="skill-group-icon">🔬</span>
-            <h3>Data Analysis & Science</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Python</span>
-            <span class="tag">pandas</span>
-            <span class="tag">NumPy</span>
-            <span class="tag">Matplotlib</span>
-            <span class="tag">Seaborn</span>
-            <span class="tag">Data Cleaning</span>
-            <span class="tag">EDA</span>
-            <span class="tag">Statistical Analysis</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <span class="skill-group-icon">📈</span>
-            <h3>Visualization & Tools</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Power BI</span>
-            <span class="tag">Microsoft Excel</span>
-            <span class="tag">SQL</span>
-            <span class="tag">Git</span>
-            <span class="tag">GitHub</span>
-          </div>
-        </div>
-
-        <div class="skill-group">
-          <div class="skill-group-header">
-            <span class="skill-group-icon">☁️</span>
-            <h3>Cloud & Machine Learning</h3>
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Amazon Web Services</span>
-            <span class="tag">AWS CLI</span>
-            <span class="tag">EC2</span>
-            <span class="tag">Machine Learning</span>
-            <span class="tag">Generative AI</span>
-            <span class="tag">RAG Architectures</span>
-            <span class="tag">Prompt Engineering</span>
-          </div>
-        </div>
-
-      </div>
-
-      <div class="proficiency-bars">
-        <h3 class="bars-title">Proficiency Highlights</h3>
-        <div class="bar-item">
-          <div class="bar-label"><span>Python (pandas, NumPy)</span><span>90%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="90"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>SQL</span><span>80%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="80"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>Power BI & Excel</span><span>85%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="85"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>AWS & Cloud</span><span>65%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="65"></div></div>
-        </div>
-        <div class="bar-item">
-          <div class="bar-label"><span>Machine Learning / GenAI</span><span>70%</span></div>
-          <div class="bar-track"><div class="bar-fill" data-width="70"></div></div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── PROJECTS ───── -->
-  <section id="projects" class="section">
-    <div class="container">
-      <h2 class="section-title">Featured <span class="accent">Project</span></h2>
-      <div class="projects-grid">
-
-        <div class="project-card featured">
-          <div class="project-top">
-            <div class="project-icon">🔍</div>
-            <div class="project-links">
-              <a href="https://github.com/9amole/Credit-card-fraud-analysis" target="_blank" aria-label="GitHub repo" class="icon-link">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
-              </a>
-            </div>
-          </div>
-          <h3 class="project-title">Credit Card Fraud Detection</h3>
-          <p class="project-subtitle">Exploratory Data Analysis</p>
-          <p class="project-desc">
-            Deep-dive EDA on the Kaggle Credit Card Fraud Detection dataset. Analyzed 283,726 transactions
-            after duplicate removal, uncovering fraud patterns in a highly imbalanced dataset (0.167% fraud rate).
-          </p>
-          <ul class="project-bullets">
-            <li>Identified <strong>V17, V14, V12, V10</strong> as the top features correlated with fraud</li>
-            <li>Investigated transaction amounts and <strong>temporal patterns</strong></li>
-            <li>Produced <strong>9 statistical visualizations</strong> with Matplotlib & Seaborn</li>
-            <li>Cleaned dataset: <strong>283,726 transactions</strong> · <strong>473 fraud cases</strong></li>
-          </ul>
-          <div class="project-tech">
-            <span class="tech-badge">Python</span>
-            <span class="tech-badge">pandas</span>
-            <span class="tech-badge">NumPy</span>
-            <span class="tech-badge">Matplotlib</span>
-            <span class="tech-badge">Seaborn</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── EXPERIENCE ───── -->
-  <section id="experience" class="section section-alt">
-    <div class="container">
-      <h2 class="section-title">Experience & <span class="accent">Education</span></h2>
-      <div class="timeline">
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <span class="timeline-badge cloud">☁️ Training</span>
-              <span class="timeline-date">July 2026 – Present</span>
-            </div>
-            <h3>AWS Machine Learning Engineer Track</h3>
-            <p class="timeline-org">AWS / Cloud Training</p>
-            <ul>
-              <li>Foundational knowledge in AWS cloud infrastructure, EC2, and AWS CLI</li>
-              <li>End-to-end machine learning pipelines and generative AI workflows</li>
-              <li>RAG architectures and prompt engineering techniques</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <span class="timeline-badge data">📊 Training</span>
-              <span class="timeline-date">Completed</span>
-            </div>
-            <h3>Data Science Training</h3>
-            <p class="timeline-org">Truvian Intelligence</p>
-            <ul>
-              <li>Data cleaning, missing-value handling, and EDA using Python, pandas, NumPy</li>
-              <li>Statistical matching algorithms and distribution analysis on tabular datasets</li>
-              <li>Visual dashboards and analytical reports with Power BI and Excel</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <span class="timeline-badge leadership">🏆 Leadership</span>
-              <span class="timeline-date">Past Role</span>
-            </div>
-            <h3>Technical Manager / Former Vice Leader</h3>
-            <p class="timeline-org">MEGA Team</p>
-            <ul>
-              <li>Led technical decisions and coordinated team efforts</li>
-              <li>Bridged communication between technical and non-technical stakeholders</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="timeline-item">
-          <div class="timeline-dot"></div>
-          <div class="timeline-card">
-            <div class="timeline-header">
-              <span class="timeline-badge edu">🎓 Education</span>
-              <span class="timeline-date">Expected 2027</span>
-            </div>
-            <h3>B.Sc. in Computer Science (Information Systems)</h3>
-            <p class="timeline-org">Mansoura University, Mansoura, Egypt</p>
-            <p class="coursework">
-              <strong>Relevant Coursework:</strong> Database Management Systems · Data Structures & Algorithms ·
-              Systems Analysis & Design · Information Systems Architecture · Applied Data Analysis
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── CONTACT ───── -->
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
-      <p class="contact-intro">
-        I'm actively seeking an entry-level <strong>Data Analyst</strong> or <strong>Data Science</strong> role.
-        Whether you have an opportunity or just want to connect — my inbox is always open.
-      </p>
-      <div class="contact-grid">
-        <a href="mailto:9amohead@gmail.com" class="contact-card">
-          <div class="contact-card-icon">✉️</div>
-          <h3>Email</h3>
-          <p>9amohead@gmail.com</p>
-        </a>
-        <a href="https://www.linkedin.com/in/abdullah-ahmed-salama4002" target="_blank" class="contact-card">
-          <div class="contact-card-icon">💼</div>
-          <h3>LinkedIn</h3>
-          <p>abdullah-ahmed-salama4002</p>
-        </a>
-        <a href="https://github.com/9amole" target="_blank" class="contact-card">
-          <div class="contact-card-icon">🐙</div>
-          <h3>GitHub</h3>
-          <p>9amole</p>
-        </a>
-        <a href="tel:+201091929748" class="contact-card">
-          <div class="contact-card-icon">📞</div>
-          <h3>Phone</h3>
-          <p>(+20) 109-192-9748</p>
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- ───── FOOTER ───── -->
-  <footer>
-    <p>Designed & Built by <strong>Abdullah Ahmed Salama</strong> · 2026</p>
-    <p class="footer-sub">Computer Science Student · Data Analyst · Mansoura, Egypt</p>
-  </footer>
-
-  <script src="script.js"></script>
+  </article>`}).join("");
+}
+document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{f=b.dataset.f;document.querySelectorAll("#filters button").forEach(x=>x.classList.toggle("on",x===b));draw();});
+$("#lang").onclick=()=>{lang=lang==="ar"?"en":"ar";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";$("#lang").textContent=lang==="ar"?"EN":"عربي";draw();};
+draw();
+</script>
 </body>
 </html>

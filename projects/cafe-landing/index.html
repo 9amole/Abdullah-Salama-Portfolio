@@ -1,0 +1,282 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>بُنّ وحكاية | Bunn & Hekaya</title>
+<meta name="description" content="Landing page concept for a specialty coffee shop — bilingual Arabic/English.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Fraunces:opsz,wght@9..144,600;9..144,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f7f1e8; --surface:#fffaf2; --ink:#2b1d14; --muted:#7a6656; --brand:#8b4a23; --brand-2:#c9853f; --line:#e8dccb; --dark:#1f150f;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:"Cairo",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.7}
+html[lang=en] body{font-family:"Cairo",system-ui,sans-serif}
+html[lang=ar] .en, html[lang=en] .ar{display:none!important}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+.serif{font-family:"Fraunces",serif}
+
+/* nav */
+nav{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+nav .wrap{display:flex;align-items:center;justify-content:space-between;height:68px;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.15rem}
+.logo .bean{width:34px;height:34px;border-radius:50%;background:var(--brand);display:grid;place-items:center;color:#fff;font-size:1rem}
+.links{display:flex;gap:26px;font-weight:600;color:var(--muted)}
+.links a:hover{color:var(--brand)}
+.lang{border:1px solid var(--line);background:var(--surface);padding:6px 14px;border-radius:999px;font:inherit;font-weight:700;cursor:pointer;color:var(--brand)}
+
+/* hero */
+.hero{padding:72px 0 56px}
+.hero .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+.tag{display:inline-block;background:#f0e2cf;color:var(--brand);padding:4px 14px;border-radius:999px;font-weight:700;font-size:.85rem}
+h1{font-size:clamp(2.2rem,5vw,3.6rem);line-height:1.2;margin:18px 0 16px;font-weight:800}
+h1 em{font-style:normal;color:var(--brand)}
+.lead{color:var(--muted);font-size:1.12rem;max-width:520px}
+.cta{display:flex;gap:12px;margin-top:28px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:12px;font-weight:700;transition:.2s}
+.btn.primary{background:var(--brand);color:#fff}
+.btn.primary:hover{background:#6f3a1b;transform:translateY(-2px)}
+.btn.ghost{border:1.5px solid var(--ink)}
+.btn.ghost:hover{background:var(--ink);color:#fff}
+.stats{display:flex;gap:34px;margin-top:38px}
+.stats b{display:block;font-size:1.6rem;color:var(--brand)}
+.stats span{color:var(--muted);font-size:.9rem}
+.cup{position:relative;aspect-ratio:1;border-radius:32px;background:radial-gradient(circle at 30% 25%,#d9a066,#8b4a23 55%,#3b2316);display:grid;place-items:center;overflow:hidden;box-shadow:0 30px 60px -20px rgba(59,35,22,.45)}
+.cup svg{width:62%}
+.steam path{stroke-dasharray:60;animation:steam 3s ease-in-out infinite}
+.steam path:nth-child(2){animation-delay:.6s}.steam path:nth-child(3){animation-delay:1.2s}
+@keyframes steam{0%{stroke-dashoffset:60;opacity:0}40%{opacity:.9}100%{stroke-dashoffset:-60;opacity:0}}
+.badge{position:absolute;bottom:22px;inset-inline-start:22px;background:var(--surface);padding:10px 16px;border-radius:14px;font-weight:700;font-size:.9rem;box-shadow:0 10px 24px rgba(0,0,0,.15)}
+
+/* sections */
+section{padding:72px 0}
+.head{text-align:center;max-width:620px;margin:0 auto 44px}
+.head h2{font-size:clamp(1.7rem,3.5vw,2.4rem);font-weight:800;margin:10px 0}
+.head p{color:var(--muted)}
+.why{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:20px;padding:28px}
+.card .ic{font-size:1.8rem;width:56px;height:56px;border-radius:16px;background:#f0e2cf;display:grid;place-items:center;margin-bottom:16px}
+.card h3{font-size:1.15rem;margin-bottom:6px}
+.card p{color:var(--muted);font-size:.97rem}
+
+/* menu */
+.tabs{display:flex;justify-content:center;gap:8px;margin-bottom:30px;flex-wrap:wrap}
+.tabs button{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--surface);padding:8px 20px;border-radius:999px;cursor:pointer;color:var(--muted)}
+.tabs button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.menu{display:grid;grid-template-columns:repeat(2,1fr);gap:14px 40px;max-width:900px;margin:0 auto}
+.item{display:flex;align-items:baseline;gap:12px;padding:14px 0;border-bottom:1px dashed var(--line)}
+.item .n{font-weight:700}
+.item small{display:block;color:var(--muted);font-weight:400}
+.item .dots{flex:1}
+.item .p{font-weight:800;color:var(--brand);white-space:nowrap}
+
+/* offer */
+.offer{background:var(--dark);color:#f7f1e8;border-radius:28px;padding:48px;display:grid;grid-template-columns:1.3fr 1fr;gap:30px;align-items:center}
+.offer h2{font-size:clamp(1.6rem,3vw,2.2rem);margin-bottom:10px}
+.offer p{color:#cdbba8}
+.code{background:#2f2118;border:1px dashed var(--brand-2);border-radius:16px;padding:22px;text-align:center}
+.code b{display:block;font-size:2rem;letter-spacing:4px;color:var(--brand-2);font-family:"Fraunces",serif}
+.code button{margin-top:10px;font:inherit;background:var(--brand-2);border:0;color:var(--dark);padding:8px 18px;border-radius:10px;font-weight:700;cursor:pointer}
+
+/* visit */
+.visit{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.hours li{list-style:none;display:flex;justify-content:space-between;padding:10px 0;border-bottom:1px solid var(--line)}
+.hours li.today{color:var(--brand);font-weight:800}
+.map{border-radius:20px;min-height:280px;background:
+  linear-gradient(90deg,transparent 48%,#e6d6c0 48% 52%,transparent 52%),
+  linear-gradient(0deg,transparent 30%,#e6d6c0 30% 34%,transparent 34%),
+  linear-gradient(0deg,transparent 70%,#e6d6c0 70% 73%,transparent 73%),#efe5d6;
+  position:relative;border:1px solid var(--line)}
+.pin{position:absolute;top:42%;left:46%;font-size:2.4rem;animation:bob 1.8s ease-in-out infinite}
+@keyframes bob{50%{transform:translateY(-8px)}}
+form.book{display:grid;gap:12px;margin-top:18px}
+form.book .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+input,select{font:inherit;padding:12px 14px;border-radius:12px;border:1px solid var(--line);background:#fff;width:100%}
+.ok{display:none;background:#e7f3e3;color:#2f6b2a;padding:12px;border-radius:12px;font-weight:700}
+
+footer{padding:36px 0;text-align:center;color:var(--muted);font-size:.9rem;border-top:1px solid var(--line)}
+.concept{display:inline-block;margin-top:8px;font-size:.8rem;background:#f0e2cf;padding:3px 12px;border-radius:999px}
+
+.reveal{opacity:0;transform:translateY(24px);transition:.7s}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:860px){
+  .hero .wrap,.offer,.visit{grid-template-columns:1fr}
+  .why{grid-template-columns:1fr}
+  .menu{grid-template-columns:1fr}
+  .links{display:none}
+  .offer{padding:30px}
+  .hero{padding-top:40px}
+}
+</style>
+</head>
+<body>
+<nav>
+  <div class="wrap">
+    <a href="#" class="logo"><span class="bean">☕</span><span class="ar">بُنّ وحكاية</span><span class="en serif">Bunn &amp; Hekaya</span></a>
+    <div class="links">
+      <a href="#why"><span class="ar">ليه إحنا</span><span class="en">Why us</span></a>
+      <a href="#menu"><span class="ar">المنيو</span><span class="en">Menu</span></a>
+      <a href="#offer"><span class="ar">العروض</span><span class="en">Offers</span></a>
+      <a href="#visit"><span class="ar">زورنا</span><span class="en">Visit</span></a>
+    </div>
+    <button class="lang" id="lang">EN</button>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="tag"><span class="ar">قهوة مختصة • تحميص طازج كل أسبوع</span><span class="en">Specialty coffee • Roasted fresh weekly</span></span>
+      <h1><span class="ar">كل فنجان <em>وراه حكاية</em></span><span class="en">Every cup <em>has a story</em></span></h1>
+      <p class="lead"><span class="ar">بنختار البُن من مزارع إثيوبيا وكولومبيا واليمن، ونحمّصه عندنا بكميات صغيرة عشان توصلك القهوة بأحلى نكهة.</span><span class="en">We source beans from farms in Ethiopia, Colombia and Yemen, and roast them in small batches in-house so every cup reaches you at its best.</span></p>
+      <div class="cta">
+        <a class="btn primary" href="#visit"><span class="ar">احجز طاولتك ←</span><span class="en">Book a table →</span></a>
+        <a class="btn ghost" href="#menu"><span class="ar">شوف المنيو</span><span class="en">See the menu</span></a>
+      </div>
+      <div class="stats">
+        <div><b>12+</b><span class="ar">نوع بُن</span><span class="en">bean origins</span></div>
+        <div><b>7</b><span class="ar">أيام في الأسبوع</span><span class="en">days a week</span></div>
+        <div><b>48h</b><span class="ar">من التحميص للفنجان</span><span class="en">roast to cup</span></div>
+      </div>
+    </div>
+    <div class="cup" aria-hidden="true">
+      <svg viewBox="0 0 200 200" fill="none">
+        <g class="steam" stroke="#f7e6cf" stroke-width="5" stroke-linecap="round">
+          <path d="M75 70c-10-14 10-22 0-38"/><path d="M100 70c-10-14 10-22 0-38"/><path d="M125 70c-10-14 10-22 0-38"/>
+        </g>
+        <path d="M40 85h120v30a50 50 0 0 1-50 50h-20a50 50 0 0 1-50-50z" fill="#f7f1e8"/>
+        <path d="M160 95h8a18 18 0 0 1 0 36h-12" stroke="#f7f1e8" stroke-width="9"/>
+        <ellipse cx="100" cy="88" rx="56" ry="8" fill="#5a3320"/>
+        <path d="M30 178h140" stroke="#f7e6cf" stroke-width="6" stroke-linecap="round"/>
+      </svg>
+      <div class="badge">⭐ <span class="ar">محمصة محلية</span><span class="en">Local roastery</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="why">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="tag"><span class="ar">ليه بُنّ وحكاية؟</span><span class="en">Why Bunn &amp; Hekaya?</span></span>
+      <h2><span class="ar">قهوة معمولة بعناية، من الحبة للفنجان</span><span class="en">Coffee made with care, from bean to cup</span></h2>
+    </div>
+    <div class="why">
+      <div class="card reveal"><div class="ic">🌱</div><h3><span class="ar">مصادر معروفة</span><span class="en">Known origins</span></h3><p><span class="ar">كل كيس بُن مكتوب عليه المزرعة والارتفاع وطريقة المعالجة.</span><span class="en">Every bag lists its farm, altitude and processing method.</span></p></div>
+      <div class="card reveal"><div class="ic">🔥</div><h3><span class="ar">تحميص طازج</span><span class="en">Fresh roasting</span></h3><p><span class="ar">بنحمّص كل أسبوع بكميات صغيرة، فالقهوة عمرها ما تقعد على الرف.</span><span class="en">We roast weekly in small batches, so coffee never sits on a shelf.</span></p></div>
+      <div class="card reveal"><div class="ic">🛋️</div><h3><span class="ar">مكان للشغل والقعدة</span><span class="en">Work-friendly space</span></h3><p><span class="ar">واي فاي سريع، مقابس كهرباء عند كل طاولة، وركن هادي للمذاكرة.</span><span class="en">Fast Wi-Fi, a socket at every table and a quiet study corner.</span></p></div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" style="background:var(--surface)">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="tag"><span class="ar">المنيو</span><span class="en">Menu</span></span>
+      <h2><span class="ar">اختار مزاجك النهارده</span><span class="en">Pick today's mood</span></h2>
+    </div>
+    <div class="tabs" id="tabs"></div>
+    <div class="menu" id="menuList"></div>
+  </div>
+</section>
+
+<section id="offer">
+  <div class="wrap">
+    <div class="offer reveal">
+      <div>
+        <h2><span class="ar">أول زيارة؟ القهوة التانية علينا ☕</span><span class="en">First visit? Your second coffee is on us ☕</span></h2>
+        <p><span class="ar">ورّي الكود ده للكاشير واطلب أي مشروبين، والتاني عليه خصم ١٠٠٪. العرض ساري لحد آخر الشهر.</span><span class="en">Show this code at the counter and order any two drinks; the second is free. Valid until the end of the month.</span></p>
+      </div>
+      <div class="code">
+        <b>HEKAYA2</b>
+        <button id="copy"><span class="ar">انسخ الكود</span><span class="en">Copy code</span></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap">
+    <div class="head reveal">
+      <span class="tag"><span class="ar">زورنا</span><span class="en">Visit us</span></span>
+      <h2><span class="ar">مستنيينك</span><span class="en">We're waiting for you</span></h2>
+    </div>
+    <div class="visit">
+      <div class="card reveal">
+        <h3><span class="ar">مواعيد العمل</span><span class="en">Opening hours</span></h3>
+        <ul class="hours" id="hours"></ul>
+        <form class="book" id="book">
+          <h3 style="margin-top:14px"><span class="ar">احجز طاولة</span><span class="en">Book a table</span></h3>
+          <input required id="nm" placeholder="الاسم">
+          <div class="row">
+            <input required type="date" id="dt">
+            <select id="ppl"><option>2</option><option>3</option><option>4</option><option>5+</option></select>
+          </div>
+          <button class="btn primary" style="justify-content:center;border:0;font:inherit;font-weight:700;cursor:pointer"><span class="ar">تأكيد الحجز</span><span class="en">Confirm booking</span></button>
+          <div class="ok" id="ok"></div>
+        </form>
+      </div>
+      <div class="map reveal" role="img" aria-label="Map"><span class="pin">📍</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div><span class="ar">© بُنّ وحكاية</span><span class="en">© Bunn &amp; Hekaya</span></div>
+    <span class="concept"><span class="ar">نموذج تصميمي لعلامة تجارية خيالية — تصميم وتطوير عبدالله سلامة</span><span class="en">Design concept for a fictional brand — designed &amp; built by Abdullah Salama</span></span>
+  </div>
+</footer>
+
+<script>
+const MENU={
+  coffee:{ar:"قهوة",en:"Coffee",items:[
+    ["إسبريسو","Espresso","شوت مزدوج من خلطة البيت","Double shot of the house blend",45],
+    ["فلات وايت","Flat White","إسبريسو مع حليب ناعم","Espresso with silky milk",70],
+    ["V60 إثيوبي","Ethiopian V60","نكهات توت وياسمين","Notes of berry and jasmine",85],
+    ["قهوة عربي بالهيل","Arabic Coffee & Cardamom","على الطريقة التقليدية","The traditional way",50]]},
+  cold:{ar:"مشروبات باردة",en:"Cold drinks",items:[
+    ["كولد برو","Cold Brew","منقوع ١٨ ساعة","Steeped for 18 hours",75],
+    ["آيس سبانش لاتيه","Iced Spanish Latte","بالحليب المكثف","With condensed milk",80],
+    ["ليمون بالنعناع","Mint Lemonade","فريش","Freshly squeezed",55],
+    ["آيس ماتشا","Iced Matcha","ماتشا ياباني","Japanese matcha",90]]},
+  sweets:{ar:"حلويات",en:"Sweets",items:[
+    ["تشيز كيك سان سباستيان","Basque Cheesecake","قطعة","Per slice",95],
+    ["كرواسون زبدة","Butter Croissant","طازج كل صباح","Baked every morning",45],
+    ["كوكيز شوكولاتة","Chocolate Cookie","بالبندق","With hazelnut",40],
+    ["بسبوسة بالقشطة","Basbousa & Cream","وصفة البيت","House recipe",55]]}
+};
+let lang="ar",tab="coffee";
+const $=s=>document.querySelector(s);
+function drawMenu(){
+  $("#tabs").innerHTML=Object.entries(MENU).map(([k,v])=>`<button data-k="${k}" class="${k===tab?"on":""}">${v[lang]}</button>`).join("");
+  $("#menuList").innerHTML=MENU[tab].items.map(i=>`<div class="item"><div class="n">${lang==="ar"?i[0]:i[1]}<small>${lang==="ar"?i[2]:i[3]}</small></div><span class="dots"></span><span class="p">${i[4]} ${lang==="ar"?"ج.م":"EGP"}</span></div>`).join("");
+  document.querySelectorAll("#tabs button").forEach(b=>b.onclick=()=>{tab=b.dataset.k;drawMenu()});
+}
+const DAYS=[["الأحد","Sunday","8:00 – 00:00"],["الاثنين","Monday","8:00 – 00:00"],["الثلاثاء","Tuesday","8:00 – 00:00"],["الأربعاء","Wednesday","8:00 – 00:00"],["الخميس","Thursday","8:00 – 02:00"],["الجمعة","Friday","13:00 – 02:00"],["السبت","Saturday","9:00 – 01:00"]];
+function drawHours(){
+  const t=new Date().getDay();
+  $("#hours").innerHTML=DAYS.map((d,i)=>`<li class="${i===t?"today":""}"><span>${lang==="ar"?d[0]:d[1]}</span><span dir="ltr">${d[2]}</span></li>`).join("");
+}
+function setLang(l){
+  lang=l;document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";
+  $("#lang").textContent=l==="ar"?"EN":"عربي";
+  $("#nm").placeholder=l==="ar"?"الاسم":"Your name";
+  drawMenu();drawHours();
+}
+$("#lang").onclick=()=>setLang(lang==="ar"?"en":"ar");
+$("#copy").onclick=()=>{navigator.clipboard?.writeText("HEKAYA2");$("#copy").textContent=lang==="ar"?"تم النسخ ✓":"Copied ✓"};
+$("#dt").min=new Date().toISOString().slice(0,10);
+$("#book").onsubmit=e=>{e.preventDefault();const ok=$("#ok");ok.style.display="block";
+  ok.textContent=lang==="ar"?`تم استلام طلب الحجز يا ${$("#nm").value} — هنكلمك للتأكيد (نموذج تجريبي)`:`Thanks ${$("#nm").value}, we'll call to confirm (demo form)`;};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.15});
+document.querySelectorAll(".reveal").forEach(el=>io.observe(el));
+setLang("ar");
+</script>
+</body>
+</html>

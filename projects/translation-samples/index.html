@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>نماذج ترجمة | Translation Samples</title>
+<meta name="description" content="Arabic ⇄ English translation and localization samples with translator notes — Abdullah Salama.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f5f6fa;--surface:#fff;--ink:#1a1d2e;--muted:#646a85;--line:#e3e6ef;--brand:#3346d3;--brand-soft:#eaedfd;--note:#fff7e0;--note-ink:#7a5a00}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Cairo","Inter",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.75}
+.wrap{max-width:1100px;margin:0 auto;padding:0 20px}
+header{padding:56px 0 30px;text-align:center}
+.tag{display:inline-block;background:var(--brand-soft);color:var(--brand);padding:4px 14px;border-radius:999px;font-weight:700;font-size:.85rem}
+h1{font-size:clamp(1.9rem,4.5vw,2.8rem);margin:14px 0 10px;font-weight:800}
+.sub{color:var(--muted);max-width:640px;margin:0 auto}
+.sub-en{font-family:"Inter",sans-serif;direction:ltr;display:block;margin-top:4px;font-size:.95rem}
+.filters{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:26px 0 8px}
+.filters button{font:inherit;font-weight:700;border:1px solid var(--line);background:var(--surface);padding:7px 18px;border-radius:999px;cursor:pointer;color:var(--muted)}
+.filters button.on{background:var(--ink);color:#fff;border-color:var(--ink)}
+.sample{background:var(--surface);border:1px solid var(--line);border-radius:22px;margin:22px 0;overflow:hidden}
+.s-head{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:18px 24px;border-bottom:1px solid var(--line);flex-wrap:wrap}
+.s-head h2{font-size:1.15rem}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:.78rem;font-weight:700;padding:3px 10px;border-radius:999px;background:var(--bg);color:var(--muted)}
+.chip.dir{background:var(--brand-soft);color:var(--brand)}
+.pair{display:grid;grid-template-columns:1fr 1fr}
+.col{padding:22px 24px}
+.col+.col{border-inline-start:1px solid var(--line)}
+.col .lbl{font-size:.78rem;font-weight:800;letter-spacing:.06em;color:var(--muted);text-transform:uppercase;margin-bottom:8px;display:flex;justify-content:space-between}
+.col[lang=en]{font-family:"Inter",sans-serif;direction:ltr;text-align:left;font-size:.96rem}
+.col[lang=ar]{direction:rtl;text-align:right;font-size:1.02rem}
+.col p+p{margin-top:10px}
+.col ul{padding-inline-start:20px}
+.copy{font:inherit;font-size:.75rem;border:0;background:none;color:var(--brand);cursor:pointer;font-weight:700}
+.notes{background:var(--note);color:var(--note-ink);padding:16px 24px;font-size:.93rem;border-top:1px solid #f3e3b0}
+.notes b{display:block;margin-bottom:4px}
+.notes li{margin-inline-start:20px}
+.ui{display:grid;grid-template-columns:1fr 1fr;gap:0}
+table{width:100%;border-collapse:collapse;font-size:.95rem}
+td,th{padding:10px 24px;border-bottom:1px solid var(--line);vertical-align:top}
+th{background:var(--bg);font-size:.78rem;color:var(--muted);text-align:start}
+td.en{direction:ltr;text-align:left;font-family:"Inter",sans-serif}
+footer{text-align:center;color:var(--muted);padding:30px 0 50px;font-size:.9rem}
+footer .disc{display:inline-block;background:var(--surface);border:1px solid var(--line);padding:8px 16px;border-radius:12px;margin-top:8px;font-size:.85rem}
+@media (max-width:760px){.pair{grid-template-columns:1fr}.col+.col{border-inline-start:0;border-top:1px solid var(--line)}td,th{padding:10px 14px}}
+</style>
+</head>
+<body>
+<header class="wrap">
+  <span class="tag">عربي ⇄ English</span>
+  <h1>نماذج ترجمة وتوطين</h1>
+  <p class="sub">نصوص قصيرة من مجالات مختلفة، كل نص جنب ترجمته، ومعاها ملاحظات بتشرح ليه اخترت الصياغة دي.<span class="sub-en">Short texts from different fields, each shown beside its translation, with notes on why I chose each wording.</span></p>
+  <div class="filters" id="filters">
+    <button class="on" data-f="all">الكل</button>
+    <button data-f="en-ar">إنجليزي ← عربي</button>
+    <button data-f="ar-en">عربي ← إنجليزي</button>
+  </div>
+</header>
+
+<main class="wrap" id="list">
+
+<!-- 1 -->
+<article class="sample" data-dir="en-ar">
+  <div class="s-head"><h2>١. وصف منتج لمتجر إلكتروني</h2>
+    <div class="chips"><span class="chip dir">EN → AR</span><span class="chip">تجارة إلكترونية</span><span class="chip">تسويقي</span></div></div>
+  <div class="pair">
+    <div class="col" lang="en"><div class="lbl">Source <button class="copy">copy</button></div>
+      <p><strong>AeroBrew Travel Mug, 450 ml</strong></p>
+      <p>Your coffee, exactly how you left it. Double-wall vacuum insulation keeps drinks hot for 8 hours and iced for 16. The leak-proof lid locks with one click, so you can toss it in your bag without a second thought.</p>
+      <ul><li>Fits most car cup holders</li><li>BPA-free, dishwasher-safe lid</li><li>Lifetime warranty against rust</li></ul>
+    </div>
+    <div class="col" lang="ar"><div class="lbl">الترجمة <button class="copy">نسخ</button></div>
+      <p><strong>كوب السفر AeroBrew – سعة ٤٥٠ مل</strong></p>
+      <p>قهوتك زي ما سبتها بالظبط. عزل حراري مزدوج الجدار يحافظ على المشروبات الساخنة ٨ ساعات والباردة ١٦ ساعة. والغطاء المانع للتسريب بيتقفل بضغطة واحدة، فتقدر ترميه في شنطتك وانت مطمّن.</p>
+      <ul><li>يناسب أغلب حوامل الأكواب في العربيات</li><li>خالٍ من مادة BPA، والغطاء آمن في غسالة الأطباق</li><li>ضمان مدى الحياة ضد الصدأ</li></ul>
+    </div>
+  </div>
+  <div class="notes"><b>ملاحظات المترجم</b><ul>
+    <li>اخترت لهجة بيضاء قريبة من المصرية لأن المتجر بيستهدف السوق المصري. وممكن أعمل نسخة بالفصحى للخليج بنفس السهولة.</li>
+    <li>عبارة "without a second thought" ما اترجمتش حرفيًا، اترجمت لـ"وانت مطمّن" عشان توصل نفس الإحساس.</li>
+    <li>سبت اسم المنتج واختصار BPA بالإنجليزي، زي ما المشتري هيلاقيهم على العلبة.</li></ul></div>
+</article>
+
+<!-- 2 -->
+<article class="sample" data-dir="ar-en">
+  <div class="s-head"><h2>٢. بريد إلكتروني رسمي لعميل</h2>
+    <div class="chips"><span class="chip dir">AR → EN</span><span class="chip">أعمال</span><span class="chip">رسمي</span></div></div>
+  <div class="pair">
+    <div class="col" lang="ar"><div class="lbl">النص الأصلي <button class="copy">نسخ</button></div>
+      <p>السادة شركة النخبة للتوريدات المحترمين،</p>
+      <p>تحية طيبة وبعد،</p>
+      <p>نود إحاطتكم علمًا بأن الشحنة رقم ٢٤١٧ قد تأخرت عن موعدها المحدد بسبب إجراءات التخليص الجمركي، ومن المتوقع وصولها خلال خمسة أيام عمل. ونعتذر عن أي إزعاج قد يسببه هذا التأخير، وتقديرًا لصبركم سنتحمل تكلفة الشحن بالكامل.</p>
+      <p>وتفضلوا بقبول فائق الاحترام والتقدير،<br>إدارة العمليات</p>
+    </div>
+    <div class="col" lang="en"><div class="lbl">Translation <button class="copy">copy</button></div>
+      <p>Dear Al-Nokhba Supplies team,</p>
+      <p>We are writing to let you know that shipment #2417 has been delayed by customs clearance and is now expected to arrive within five business days.</p>
+      <p>We apologize for any inconvenience this may cause. To thank you for your patience, we will cover the full shipping cost.</p>
+      <p>Kind regards,<br>Operations Team</p>
+    </div>
+  </div>
+  <div class="notes"><b>ملاحظات المترجم</b><ul>
+    <li>عبارات المقدمة والختام العربية الطويلة ("تحية طيبة وبعد"، "تفضلوا بقبول فائق الاحترام") اترجمت لصيغ الإيميل الإنجليزي المعتادة. لو اتترجمت حرفيًا كانت هتبان غريبة على القارئ.</li>
+    <li>الجملة العربية الطويلة اتقسمت لجملتين أقصر، لأن ده الأسهل في القراءة في الإيميلات الإنجليزية.</li>
+    <li>"نود إحاطتكم علمًا" اترجمت لـ"We are writing to let you know"، وهي مهذبة من غير ما تكون متكلفة.</li></ul></div>
+</article>
+
+<!-- 3 -->
+<article class="sample" data-dir="ar-en">
+  <div class="s-head"><h2>٣. منشور سوشيال ميديا</h2>
+    <div class="chips"><span class="chip dir">AR → EN</span><span class="chip">تسويق</span><span class="chip">إبداعي</span></div></div>
+  <div class="pair">
+    <div class="col" lang="ar"><div class="lbl">النص الأصلي <button class="copy">نسخ</button></div>
+      <p>الشتا جه ومعاه أحلى عروضنا 🧣</p>
+      <p>خصم ٣٠٪ على كل الجواكت لمدة ٣ أيام بس! ما تستناش لحد ما المقاس بتاعك يخلص 😉</p>
+      <p>اطلب دلوقتي من اللينك اللي في البايو 👆</p>
+    </div>
+    <div class="col" lang="en"><div class="lbl">Translation <button class="copy">copy</button></div>
+      <p>Winter is here, and so are our best deals 🧣</p>
+      <p>30% off every jacket, for 3 days only! Don't wait until your size sells out 😉</p>
+      <p>Shop now via the link in our bio 👆</p>
+    </div>
+  </div>
+  <div class="notes"><b>ملاحظات المترجم</b><ul>
+    <li>حافظت على النبرة الخفيفة والإيموجي في نفس أماكنها، لأن المنشور معتمد عليهم.</li>
+    <li>"يخلص" اترجمت لـ"sells out"، وهو التعبير التسويقي المعتاد بالإنجليزي، مش "finishes".</li>
+    <li>"اطلب دلوقتي" بقت "Shop now"، دعوة لاتخاذ إجراء معروفة للجمهور الإنجليزي.</li></ul></div>
+</article>
+
+<!-- 4 -->
+<article class="sample" data-dir="en-ar">
+  <div class="s-head"><h2>٤. توطين واجهة تطبيق (UI Localization)</h2>
+    <div class="chips"><span class="chip dir">EN → AR</span><span class="chip">تقني</span><span class="chip">تطبيقات</span></div></div>
+  <table>
+    <thead><tr><th>English (Source)</th><th>العربية</th><th>ملاحظة</th></tr></thead>
+    <tbody>
+      <tr><td class="en">Sign in</td><td>تسجيل الدخول</td><td>المصطلح المعتمد في أغلب التطبيقات العربية</td></tr>
+      <tr><td class="en">Forgot password?</td><td>نسيت كلمة المرور؟</td><td>"كلمة المرور" أدق من "الباسورد" في الواجهات الرسمية</td></tr>
+      <tr><td class="en">You have {count} new messages</td><td>لديك {count} رسائل جديدة</td><td>العربي فيه مفرد ومثنى وجمع، فلازم المطوّر يضيف صيغ الجمع (pluralization) عشان تطلع "رسالة واحدة" و"رسالتان" صح</td></tr>
+      <tr><td class="en">Swipe left to delete</td><td>اسحب لليمين للحذف</td><td>في الواجهات اللي اتجاهها من اليمين لليسار، اتجاه السحب بيتعكس، فلازم يتراجع مع المطوّر</td></tr>
+      <tr><td class="en">Save changes</td><td>حفظ التغييرات</td><td>زرار، فاستخدمت مصدر قصير بدل الفعل "احفظ"</td></tr>
+      <tr><td class="en">Last updated 2 hours ago</td><td>آخر تحديث منذ ساعتين</td><td>"ساعتين" بصيغة المثنى، مش "٢ ساعات"</td></tr>
+    </tbody>
+  </table>
+  <div class="notes"><b>ليه ده مهم؟</b> توطين التطبيقات مش ترجمة كلمات وبس. فيه صيغ جمع، واتجاه الواجهة، وطول النص جوه الأزرار، ودي كلها حاجات بتأثر على الكود نفسه.</div>
+</article>
+
+</main>
+
+<footer class="wrap">
+  <div>إعداد وترجمة: عبدالله سلامة • Abdullah Salama</div>
+  <div class="disc">النصوص الأصلية مكتوبة خصيصًا كنماذج للعرض، والأسماء والأرقام فيها خيالية. • Source texts were written as portfolio samples; all names and figures are fictional.</div>
+</footer>
+
+<script>
+document.querySelectorAll("#filters button").forEach(b=>b.onclick=()=>{
+  document.querySelectorAll("#filters button").forEach(x=>x.classList.toggle("on",x===b));
+  document.querySelectorAll(".sample").forEach(s=>s.style.display=(b.dataset.f==="all"||s.dataset.dir===b.dataset.f)?"":"none");
+});
+document.querySelectorAll(".copy").forEach(btn=>btn.onclick=()=>{
+  const col=btn.closest(".col");const t=[...col.children].slice(1).map(e=>e.innerText).join("\n");
+  navigator.clipboard?.writeText(t);const o=btn.textContent;btn.textContent="✓";setTimeout(()=>btn.textContent=o,1200);
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,210 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Arab Digital Dashboard | لوحة الاقتصاد الرقمي العربي</title>
+<meta name="description" content="Interactive dashboard of internet adoption, mobile subscriptions, GDP per capita and youth unemployment across 18 Arab countries (World Bank data, 2010–2024).">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;800&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<style>
+:root{--bg:#0e1320;--panel:#161d2e;--panel2:#1c2539;--ink:#e8ecf6;--muted:#93a0bd;--line:#26314a;--a:#4fd1c5;--b:#f6ad55;--c:#9f7aea;--d:#f56565;--e:#63b3ed}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Cairo","Inter",system-ui,sans-serif;background:var(--bg);color:var(--ink);line-height:1.6}
+html[lang=en] body{font-family:"Inter","Cairo",sans-serif}
+html[lang=ar] .en,html[lang=en] .ar{display:none!important}
+.wrap{max-width:1240px;margin:0 auto;padding:0 18px}
+header{padding:28px 0 18px;display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap}
+h1{font-size:clamp(1.4rem,3vw,2rem);font-weight:800}
+header p{color:var(--muted);font-size:.95rem}
+.controls{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+select,button{font:inherit;background:var(--panel2);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:8px 12px;cursor:pointer}
+button.lang{font-weight:800;color:var(--a)}
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:14px}
+.kpi{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 18px}
+.kpi .l{color:var(--muted);font-size:.85rem}
+.kpi .v{font-size:1.8rem;font-weight:800;margin:2px 0;font-family:"Inter",sans-serif}
+.kpi .s{font-size:.82rem;color:var(--muted)}
+.kpi:nth-child(1) .v{color:var(--a)}.kpi:nth-child(2) .v{color:var(--b)}.kpi:nth-child(3) .v{color:var(--c)}.kpi:nth-child(4) .v{color:var(--d)}
+.grid{display:grid;grid-template-columns:1.4fr 1fr;gap:14px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px 18px;min-width:0}
+.panel h2{font-size:1rem;margin-bottom:2px}
+.panel .hint{color:var(--muted);font-size:.82rem;margin-bottom:10px}
+.ch{position:relative;height:320px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:10px}
+.chip{font-size:.78rem;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:var(--panel2);color:var(--muted);cursor:pointer;user-select:none}
+.chip.on{color:#0e1320;font-weight:700}
+.insights{margin-top:14px}
+.insights ol{padding-inline-start:22px;display:grid;gap:8px}
+.insights li::marker{color:var(--a);font-weight:800}
+.insights b{color:var(--a)}
+table{width:100%;border-collapse:collapse;font-size:.88rem;font-family:"Inter","Cairo",sans-serif}
+th,td{padding:8px 10px;border-bottom:1px solid var(--line);text-align:start;white-space:nowrap}
+th{color:var(--muted);font-weight:600;cursor:pointer}
+th:hover{color:var(--ink)}
+td.num{font-variant-numeric:tabular-nums}
+.tbl{overflow-x:auto}
+footer{color:var(--muted);font-size:.82rem;padding:22px 0 36px;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+footer a{color:var(--a)}
+@media (max-width:900px){.grid{grid-template-columns:1fr}.kpis{grid-template-columns:repeat(2,1fr)}.ch{height:280px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div>
+    <h1><span class="ar">لوحة الاقتصاد الرقمي في الوطن العربي</span><span class="en">Arab Digital Economy Dashboard</span></h1>
+    <p><span class="ar">انتشار الإنترنت والموبايل والدخل وبطالة الشباب في ١٨ دولة عربية • بيانات البنك الدولي ٢٠١٠–٢٠٢٤</span><span class="en">Internet and mobile adoption, income and youth unemployment in 18 Arab countries • World Bank data, 2010–2024</span></p>
+  </div>
+  <div class="controls">
+    <label><span class="ar">السنة:</span><span class="en">Year:</span> <select id="year"></select></label>
+    <button class="lang" id="lang">EN</button>
+  </div>
+</header>
+
+<section class="kpis" id="kpis"></section>
+
+<div class="grid">
+  <div class="panel">
+    <h2><span class="ar">نسبة مستخدمي الإنترنت عبر الزمن</span><span class="en">Internet users over time</span></h2>
+    <p class="hint"><span class="ar">% من السكان • دوس على أي دولة عشان تضيفها أو تشيلها</span><span class="en">% of population • click a country to add or remove it</span></p>
+    <div class="chips" id="chips"></div>
+    <div class="ch"><canvas id="line"></canvas></div>
+  </div>
+  <div class="panel">
+    <h2><span class="ar">ترتيب الدول — الإنترنت</span><span class="en">Ranking — internet users</span></h2>
+    <p class="hint"><span class="ar">% من السكان في السنة المختارة</span><span class="en">% of population in selected year</span></p>
+    <div class="ch" style="height:390px"><canvas id="bar"></canvas></div>
+  </div>
+  <div class="panel">
+    <h2><span class="ar">الدخل مقابل استخدام الإنترنت</span><span class="en">Income vs internet use</span></h2>
+    <p class="hint"><span class="ar">نصيب الفرد من الناتج المحلي (مقياس لوغاريتمي) • حجم الدائرة = عدد السكان</span><span class="en">GDP per capita (log scale) • bubble size = population</span></p>
+    <div class="ch"><canvas id="scatter"></canvas></div>
+  </div>
+  <div class="panel">
+    <h2><span class="ar">بطالة الشباب (١٥–٢٤ سنة)</span><span class="en">Youth unemployment (15–24)</span></h2>
+    <p class="hint"><span class="ar">% من القوى العاملة الشابة • تقديرات منظمة العمل الدولية</span><span class="en">% of youth labour force • ILO modelled estimate</span></p>
+    <div class="ch"><canvas id="youth"></canvas></div>
+  </div>
+</div>
+
+<section class="panel insights">
+  <h2><span class="ar">أهم الملاحظات</span><span class="en">Key insights</span></h2>
+  <p class="hint"><span class="ar">بتتحسب تلقائيًا من البيانات حسب السنة المختارة</span><span class="en">Computed automatically from the data for the selected year</span></p>
+  <ol id="insights"></ol>
+</section>
+
+<section class="panel" style="margin-top:14px">
+  <h2><span class="ar">جدول البيانات</span><span class="en">Data table</span></h2>
+  <p class="hint"><span class="ar">دوس على عنوان أي عمود عشان ترتّب • "—" يعني مفيش بيانات للسنة دي</span><span class="en">Click a header to sort • "—" means no data for that year</span></p>
+  <div class="tbl"><table id="tbl"></table></div>
+</section>
+
+<footer>
+  <span><span class="ar">المصدر:</span><span class="en">Source:</span> <a href="https://data.worldbank.org" target="_blank" rel="noopener">World Bank Open Data</a> (IT.NET.USER.ZS, IT.CEL.SETS.P2, NY.GDP.PCAP.CD, SP.POP.TOTL, SL.UEM.1524.ZS)</span>
+  <span><span class="ar">تحليل وتصميم: عبدالله سلامة • Python + Chart.js</span><span class="en">Analysis &amp; design: Abdullah Salama • Python + Chart.js</span></span>
+</footer>
+</div>
+
+<script src="data.js"></script>
+<script>
+const $=s=>document.querySelector(s);
+const ISO=Object.keys(WB);
+const PAL=["#4fd1c5","#f6ad55","#9f7aea","#f56565","#63b3ed","#68d391","#ed64a6","#ecc94b"];
+let lang="ar",year="2023",sel=["EGY","SAU","MAR","IRQ"],sortK="internet",sortDir=-1;
+const name=i=>WB[i][lang];
+const val=(i,k,y=year)=>WB[i][k]?.[y];
+const fmt=(v,d=1)=>v==null?"—":v.toLocaleString(lang==="ar"?"ar-EG":"en-US",{maximumFractionDigits:d});
+const T=(ar,en)=>lang==="ar"?ar:en;
+
+Chart.defaults.color="#93a0bd";Chart.defaults.borderColor="#26314a";
+Chart.defaults.font.family="Inter, Cairo, sans-serif";
+const charts={};
+function mk(id,cfg){charts[id]?.destroy();charts[id]=new Chart($("#"+id),cfg);}
+
+function kpis(){
+  const withNet=ISO.filter(i=>val(i,"internet")!=null);
+  const popSum=withNet.reduce((s,i)=>s+(val(i,"pop")||0),0);
+  const wAvg=withNet.reduce((s,i)=>s+val(i,"internet")*(val(i,"pop")||0),0)/popSum;
+  const over90=withNet.filter(i=>val(i,"internet")>=90).length;
+  const rich=ISO.filter(i=>val(i,"gdppc")!=null).sort((a,b)=>val(b,"gdppc")-val(a,"gdppc"))[0];
+  const yu=ISO.filter(i=>val(i,"youth_unemp")!=null).sort((a,b)=>val(b,"youth_unemp")-val(a,"youth_unemp"))[0];
+  $("#kpis").innerHTML=[
+    [T("متوسط مستخدمي الإنترنت","Avg. internet users"),fmt(wAvg)+"%",T(`مرجّح بعدد السكان • ${fmt(withNet.length,0)} دولة`,`population-weighted • ${withNet.length} countries`)],
+    [T("دول فوق ٩٠٪","Countries above 90%"),fmt(over90,0),T(`من ${fmt(withNet.length,0)} دولة عندها بيانات`,`of ${withNet.length} with data`)],
+    [T("أعلى دخل للفرد","Highest GDP per capita"),"$"+fmt(val(rich,"gdppc"),0),name(rich)],
+    [T("أعلى بطالة شباب","Highest youth unemployment"),fmt(val(yu,"youth_unemp"))+"%",name(yu)]
+  ].map(k=>`<div class="kpi"><div class="l">${k[0]}</div><div class="v">${k[1]}</div><div class="s">${k[2]}</div></div>`).join("");
+}
+
+function line(){
+  const years=[...Array(15)].map((_,i)=>String(2010+i));
+  $("#chips").innerHTML=ISO.map(i=>{const k=sel.indexOf(i);return `<span class="chip ${k>=0?"on":""}" data-i="${i}" style="${k>=0?`background:${PAL[k%8]};border-color:${PAL[k%8]}`:""}">${name(i)}</span>`}).join("");
+  document.querySelectorAll("#chips .chip").forEach(c=>c.onclick=()=>{const i=c.dataset.i;sel=sel.includes(i)?sel.filter(x=>x!==i):[...sel,i].slice(-8);line();});
+  mk("line",{type:"line",data:{labels:years,datasets:sel.map((i,k)=>({label:name(i),data:years.map(y=>val(i,"internet",y)??null),borderColor:PAL[k%8],backgroundColor:PAL[k%8],tension:.3,spanGaps:true,pointRadius:2}))},
+    options:{maintainAspectRatio:false,interaction:{mode:"index",intersect:false},scales:{y:{min:0,max:100,ticks:{callback:v=>v+"%"}}},plugins:{legend:{position:"bottom",labels:{boxWidth:10}},tooltip:{callbacks:{label:c=>`${c.dataset.label}: ${fmt(c.parsed.y)}%`}}}}});
+}
+
+function bar(){
+  const rows=ISO.filter(i=>val(i,"internet")!=null).sort((a,b)=>val(b,"internet")-val(a,"internet"));
+  mk("bar",{type:"bar",data:{labels:rows.map(name),datasets:[{data:rows.map(i=>val(i,"internet")),backgroundColor:rows.map(i=>i==="EGY"?"#f6ad55":"#4fd1c5"),borderRadius:4}]},
+    options:{indexAxis:"y",maintainAspectRatio:false,scales:{x:{min:0,max:100,ticks:{callback:v=>v+"%"}},y:{position:lang==="ar"?"right":"left"}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.parsed.x)+"%"}}}}});
+}
+
+function scatter(){
+  const rows=ISO.filter(i=>val(i,"internet")!=null&&val(i,"gdppc")!=null);
+  mk("scatter",{type:"bubble",data:{datasets:[{data:rows.map(i=>({x:val(i,"gdppc"),y:val(i,"internet"),r:Math.max(4,Math.sqrt(val(i,"pop")/1e6)*1.6),n:name(i)})),backgroundColor:rows.map(i=>i==="EGY"?"rgba(246,173,85,.75)":"rgba(159,122,234,.55)"),borderColor:"#0e1320"}]},
+    options:{maintainAspectRatio:false,scales:{x:{type:"logarithmic",title:{display:true,text:T("نصيب الفرد من الناتج المحلي (دولار)","GDP per capita (US$)")},ticks:{callback:v=>[1000,3000,10000,30000,100000].includes(v)?"$"+v.toLocaleString():""}},y:{min:0,max:105,title:{display:true,text:T("مستخدمو الإنترنت %","Internet users %")}}},
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>`${c.raw.n}: $${fmt(c.raw.x,0)} • ${fmt(c.raw.y)}%`}}}}});
+}
+
+function youth(){
+  const rows=ISO.filter(i=>val(i,"youth_unemp")!=null).sort((a,b)=>val(b,"youth_unemp")-val(a,"youth_unemp"));
+  mk("youth",{type:"bar",data:{labels:rows.map(name),datasets:[{data:rows.map(i=>val(i,"youth_unemp")),backgroundColor:rows.map(i=>i==="EGY"?"#f6ad55":"#f56565"),borderRadius:4}]},
+    options:{maintainAspectRatio:false,scales:{y:{ticks:{callback:v=>v+"%"}},x:{ticks:{maxRotation:60,minRotation:45}}},plugins:{legend:{display:false},tooltip:{callbacks:{label:c=>fmt(c.parsed.y)+"%"}}}}});
+}
+
+function corr(xs,ys){const n=xs.length,mx=xs.reduce((a,b)=>a+b)/n,my=ys.reduce((a,b)=>a+b)/n;let sxy=0,sx=0,sy=0;xs.forEach((x,i)=>{sxy+=(x-mx)*(ys[i]-my);sx+=(x-mx)**2;sy+=(ys[i]-my)**2});return sxy/Math.sqrt(sx*sy);}
+
+function insights(){
+  const L=[];
+  const net=ISO.filter(i=>val(i,"internet")!=null).sort((a,b)=>val(b,"internet")-val(a,"internet"));
+  const top=net[0],low=net[net.length-1];
+  L.push(T(`<b>${name(top)}</b> في المركز الأول بنسبة ${fmt(val(top,"internet"))}% من السكان على الإنترنت، و<b>${name(low)}</b> في الآخر بنسبة ${fmt(val(low,"internet"))}%، يعني فجوة ${fmt(val(top,"internet")-val(low,"internet"))} نقطة مئوية.`,
+           `<b>${name(top)}</b> leads with ${fmt(val(top,"internet"))}% of people online, while <b>${name(low)}</b> trails at ${fmt(val(low,"internet"))}%, a gap of ${fmt(val(top,"internet")-val(low,"internet"))} percentage points.`));
+  const e10=val("EGY","internet","2010"),eY=val("EGY","internet");
+  if(e10!=null&&eY!=null){const rank=net.indexOf("EGY")+1;
+    L.push(T(`<b>مصر</b> زادت من ${fmt(e10)}% سنة ٢٠١٠ لـ ${fmt(eY)}% سنة ${year} (أكتر بـ ${fmt(eY/e10)} مرة)، وترتيبها ${rank} من ${net.length}.`,
+             `<b>Egypt</b> went from ${fmt(e10)}% in 2010 to ${fmt(eY)}% in ${year} (×${fmt(eY/e10)}), ranking ${rank} of ${net.length}.`));}
+  const both=ISO.filter(i=>val(i,"internet")!=null&&val(i,"gdppc")!=null);
+  const r=corr(both.map(i=>Math.log(val(i,"gdppc"))),both.map(i=>val(i,"internet")));
+  L.push(T(`معامل الارتباط بين لوغاريتم الدخل ونسبة استخدام الإنترنت هو <b>${fmt(r,2)}</b>. الدول الأغنى أغلبها متصلة أكتر، بس الدخل لوحده مش بيفسر كل الفرق.`,
+           `Correlation between log income and internet use is <b>${fmt(r,2)}</b>. Richer countries are mostly more connected, but income alone doesn't explain every gap.`));
+  const gcc=["SAU","ARE","QAT","KWT","BHR","OMN"].filter(i=>val(i,"youth_unemp")!=null),rest=ISO.filter(i=>!["SAU","ARE","QAT","KWT","BHR","OMN"].includes(i)&&val(i,"youth_unemp")!=null);
+  const avg=a=>a.reduce((s,i)=>s+val(i,"youth_unemp"),0)/a.length;
+  if(gcc.length&&rest.length)L.push(T(`متوسط بطالة الشباب في دول الخليج ${fmt(avg(gcc))}%، وفي باقي الدول العربية ${fmt(avg(rest))}% (متوسط بسيط غير مرجّح).`,
+           `Average youth unemployment is ${fmt(avg(gcc))}% in the GCC versus ${fmt(avg(rest))}% in the other Arab countries (simple, unweighted average).`));
+  const mob=ISO.filter(i=>val(i,"mobile")>100).length,mobN=ISO.filter(i=>val(i,"mobile")!=null).length;
+  L.push(T(`في ${fmt(mob,0)} من ${fmt(mobN,0)} دولة، عدد اشتراكات الموبايل أكبر من عدد السكان (أكتر من ١٠٠ اشتراك لكل ١٠٠ شخص)، وده بسبب إن ناس كتير معاها أكتر من خط.`,
+           `In ${mob} of ${mobN} countries there are more mobile subscriptions than people (over 100 per 100), since many people have more than one SIM.`));
+  $("#insights").innerHTML=L.map(x=>`<li>${x}</li>`).join("");
+}
+
+function table(){
+  const cols=[["name",T("الدولة","Country")],["internet",T("إنترنت %","Internet %")],["mobile",T("موبايل /١٠٠","Mobile /100")],["gdppc",T("دخل الفرد $","GDP pc $")],["youth_unemp",T("بطالة شباب %","Youth unemp. %")],["pop",T("السكان (مليون)","Pop. (M)")]];
+  const v=(i,k)=>k==="name"?name(i):k==="pop"?(val(i,"pop")??null)/1e6:val(i,k);
+  const rows=[...ISO].sort((a,b)=>{const x=v(a,sortK),y=v(b,sortK);if(x==null)return 1;if(y==null)return -1;return (x>y?1:x<y?-1:0)*sortDir;});
+  $("#tbl").innerHTML=`<thead><tr>${cols.map(c=>`<th data-k="${c[0]}">${c[1]}${sortK===c[0]?(sortDir<0?" ▼":" ▲"):""}</th>`).join("")}</tr></thead><tbody>${rows.map(i=>`<tr>${cols.map(c=>`<td class="${c[0]==="name"?"":"num"}">${c[0]==="name"?name(i):fmt(v(i,c[0]),c[0]==="gdppc"?0:1)}</td>`).join("")}</tr>`).join("")}</tbody>`;
+  document.querySelectorAll("#tbl th").forEach(th=>th.onclick=()=>{const k=th.dataset.k;sortDir=sortK===k?-sortDir:(k==="name"?1:-1);sortK=k;table();});
+}
+
+function all(){kpis();line();bar();scatter();youth();insights();table();}
+$("#year").innerHTML=[...Array(10)].map((_,i)=>2024-i).map(y=>`<option ${y==2023?"selected":""}>${y}</option>`).join("");
+$("#year").onchange=e=>{year=e.target.value;all();};
+$("#lang").onclick=()=>{lang=lang==="ar"?"en":"ar";document.documentElement.lang=lang;document.documentElement.dir=lang==="ar"?"rtl":"ltr";$("#lang").textContent=lang==="ar"?"EN":"عربي";all();};
+all();
+</script>
+</body>
+</html>

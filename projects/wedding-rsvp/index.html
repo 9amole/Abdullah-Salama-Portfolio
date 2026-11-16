@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>عمر وليلى | Omar &amp; Layla</title>
+<meta name="description" content="Bilingual wedding invitation template with RSVP, countdown, personalised guest link and add-to-calendar.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Cormorant+Garamond:ital,wght@0,500;0,700;1,500&family=Cairo:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f4f1ea;--paper:#fbf9f4;--ink:#2f3a2c;--muted:#6f7867;--olive:#5d6b45;--gold:#b08d57;--line:#ddd6c6}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"Cairo",sans-serif;background:var(--bg);color:var(--ink);line-height:1.8;overflow-x:hidden}
+html[lang=ar] .en,html[lang=en] .ar{display:none!important}
+.disp{font-family:"Amiri",serif}
+html[lang=en] .disp{font-family:"Cormorant Garamond",serif}
+.wrap{max-width:760px;margin:0 auto;padding:0 20px}
+.lang{position:fixed;top:14px;inset-inline-end:14px;z-index:30;font:inherit;font-weight:600;background:var(--paper);border:1px solid var(--line);border-radius:999px;padding:6px 14px;color:var(--olive);cursor:pointer}
+
+/* envelope intro */
+#intro{position:fixed;inset:0;z-index:20;background:var(--olive);display:grid;place-items:center;transition:opacity .9s,visibility .9s;padding:20px}
+#intro.gone{opacity:0;visibility:hidden}
+.env{width:min(360px,86vw);aspect-ratio:1.45;background:var(--paper);border-radius:6px;position:relative;box-shadow:0 30px 60px rgba(0,0,0,.3);cursor:pointer;overflow:hidden}
+.env::before{content:"";position:absolute;inset:0;background:linear-gradient(to bottom right,transparent 49.5%,var(--line) 50%,transparent 50.5%),linear-gradient(to bottom left,transparent 49.5%,var(--line) 50%,transparent 50.5%)}
+.flap{position:absolute;top:0;left:0;right:0;height:58%;background:#efe9dc;clip-path:polygon(0 0,100% 0,50% 100%);transform-origin:top;transition:transform .8s}
+.env.open .flap{transform:rotateX(180deg)}
+.seal{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:70px;height:70px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-family:"Cormorant Garamond",serif;font-size:1.5rem;font-weight:700;box-shadow:0 4px 10px rgba(0,0,0,.25)}
+.tap{color:#e9e4d6;margin-top:22px;text-align:center;font-size:.95rem;animation:pulse 2s infinite}
+@keyframes pulse{50%{opacity:.4}}
+.dear{color:#fff;text-align:center;margin-bottom:22px;font-size:1.2rem}
+
+/* hero */
+.hero{min-height:100vh;display:grid;place-items:center;text-align:center;padding:80px 20px;position:relative}
+.branch{width:140px;opacity:.8}
+.pre{letter-spacing:.2em;color:var(--muted);font-size:.85rem;margin:16px 0}
+.names{font-size:clamp(3rem,11vw,5.5rem);line-height:1.1;color:var(--olive)}
+.amp{color:var(--gold);font-size:.6em;display:block}
+.date{margin-top:20px;font-size:1.15rem;letter-spacing:.08em}
+.guest{margin-top:16px;color:var(--gold);font-weight:600}
+
+/* countdown */
+.cd{display:flex;justify-content:center;gap:12px;margin-top:34px}
+.cd div{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:12px 6px;min-width:72px}
+.cd b{display:block;font-size:1.8rem;font-family:"Cormorant Garamond",serif;color:var(--olive)}
+.cd span{font-size:.75rem;color:var(--muted)}
+.done{margin-top:30px;font-size:1.3rem;color:var(--olive)}
+
+section{padding:70px 0;text-align:center}
+h2{font-size:2.2rem;color:var(--olive);margin-bottom:8px}
+.orn{color:var(--gold);letter-spacing:.4em;margin-bottom:28px}
+.quote{font-size:1.25rem;max-width:560px;margin:0 auto;color:var(--muted)}
+
+/* timeline */
+.tl{max-width:460px;margin:0 auto;text-align:start;position:relative;padding-inline-start:34px}
+.tl::before{content:"";position:absolute;inset-inline-start:10px;top:6px;bottom:6px;width:1px;background:var(--gold)}
+.tl li{list-style:none;position:relative;padding:0 0 26px}
+.tl li::before{content:"";position:absolute;inset-inline-start:-29px;top:8px;width:11px;height:11px;border-radius:50%;background:var(--paper);border:2px solid var(--gold)}
+.tl time{font-weight:600;color:var(--gold);direction:ltr;display:inline-block}
+.tl h3{font-size:1.1rem}
+.tl p{color:var(--muted);font-size:.92rem}
+
+.venue{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:30px;max-width:520px;margin:0 auto}
+.btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+.btn{font:inherit;font-weight:600;padding:10px 22px;border-radius:999px;border:1px solid var(--olive);background:transparent;color:var(--olive);cursor:pointer;text-decoration:none;display:inline-block}
+.btn.solid{background:var(--olive);color:#fff}
+.btn:hover{opacity:.85}
+
+.dress{display:flex;justify-content:center;gap:14px;margin-top:16px}
+.dress i{width:42px;height:42px;border-radius:50%;border:3px solid var(--paper);box-shadow:0 0 0 1px var(--line)}
+
+/* rsvp */
+form{max-width:480px;margin:0 auto;text-align:start;display:grid;gap:14px}
+label{font-weight:600;font-size:.92rem}
+input,select,textarea{font:inherit;width:100%;padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:var(--paper);margin-top:4px}
+.att{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.att input{display:none}
+.att label{border:1px solid var(--line);border-radius:10px;padding:12px;text-align:center;cursor:pointer;background:var(--paper);font-weight:600}
+.att input:checked+label{background:var(--olive);color:#fff;border-color:var(--olive)}
+.thanks{display:none;background:var(--paper);border:1px solid var(--gold);border-radius:14px;padding:22px;max-width:480px;margin:0 auto}
+.count{margin-top:14px;font-size:.85rem;color:var(--muted)}
+
+details{max-width:560px;margin:0 auto 10px;background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:14px 18px;text-align:start}
+summary{cursor:pointer;font-weight:600}
+details p{color:var(--muted);margin-top:8px}
+
+footer{padding:40px 20px;text-align:center;color:var(--muted);font-size:.85rem}
+footer .names-s{font-size:1.6rem;color:var(--olive)}
+.demo{display:inline-block;margin-top:10px;background:var(--paper);border:1px solid var(--line);padding:4px 12px;border-radius:999px;font-size:.75rem}
+
+.rv{opacity:0;transform:translateY(20px);transition:1s}.rv.in{opacity:1;transform:none}
+@media (max-width:480px){.cd div{min-width:62px}.cd b{font-size:1.4rem}}
+</style>
+</head>
+<body>
+<button class="lang" id="lang">EN</button>
+
+<div id="intro">
+  <div>
+    <div class="dear" id="dear"></div>
+    <div class="env" id="env"><div class="flap"></div><div class="seal">O&amp;L</div></div>
+    <div class="tap"><span class="ar">اضغط لفتح الدعوة</span><span class="en">Tap to open your invitation</span></div>
+  </div>
+</div>
+
+<header class="hero">
+  <div>
+    <svg class="branch" viewBox="0 0 140 40" fill="none" stroke="#5d6b45" stroke-width="1.4"><path d="M5 20h130"/><g fill="#5d6b45" stroke="none"><ellipse cx="30" cy="13" rx="7" ry="3" transform="rotate(-25 30 13)"/><ellipse cx="30" cy="27" rx="7" ry="3" transform="rotate(25 30 27)"/><ellipse cx="55" cy="13" rx="7" ry="3" transform="rotate(-25 55 13)"/><ellipse cx="55" cy="27" rx="7" ry="3" transform="rotate(25 55 27)"/><ellipse cx="85" cy="13" rx="7" ry="3" transform="rotate(25 85 13)"/><ellipse cx="85" cy="27" rx="7" ry="3" transform="rotate(-25 85 27)"/><ellipse cx="110" cy="13" rx="7" ry="3" transform="rotate(25 110 13)"/><ellipse cx="110" cy="27" rx="7" ry="3" transform="rotate(-25 110 27)"/></g><circle cx="70" cy="20" r="4" fill="#b08d57" stroke="none"/></svg>
+    <p class="pre"><span class="ar">بكل الحب، ندعوكم لحضور حفل زفاف</span><span class="en">TOGETHER WITH THEIR FAMILIES</span></p>
+    <h1 class="names disp"><span class="ar">عمر<span class="amp">و</span>ليلى</span><span class="en">Omar<span class="amp">&amp;</span>Layla</span></h1>
+    <p class="date disp"><span class="ar">الخميس ١٥ أبريل ٢٠٢٧ • الساعة ٧ مساءً</span><span class="en">Thursday · 15 April 2027 · 7 PM</span></p>
+    <p class="guest" id="guestLine"></p>
+    <div class="cd" id="cd"></div>
+  </div>
+</header>
+
+<section class="rv">
+  <div class="wrap">
+    <h2 class="disp"><span class="ar">حكايتنا</span><span class="en">Our story</span></h2>
+    <div class="orn">✦ ✦ ✦</div>
+    <p class="quote disp"><span class="ar">«وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا وَجَعَلَ بَيْنَكُم مَّوَدَّةً وَرَحْمَةً»</span><span class="en">"Two souls with but a single thought, two hearts that beat as one." We met in a library, argued over the last copy of a book, and have been sharing everything since.</span></p>
+  </div>
+</section>
+
+<section class="rv" style="background:var(--paper)">
+  <div class="wrap">
+    <h2 class="disp"><span class="ar">برنامج اليوم</span><span class="en">The day</span></h2>
+    <div class="orn">✦ ✦ ✦</div>
+    <ul class="tl">
+      <li><time>7:00 PM</time><h3><span class="ar">استقبال الضيوف</span><span class="en">Guest arrival</span></h3><p><span class="ar">مشروبات ترحيب في الحديقة</span><span class="en">Welcome drinks in the garden</span></p></li>
+      <li><time>7:45 PM</time><h3><span class="ar">كتب الكتاب</span><span class="en">Ceremony</span></h3><p><span class="ar">في القاعة الرئيسية</span><span class="en">In the main hall</span></p></li>
+      <li><time>8:30 PM</time><h3><span class="ar">الزفة والعشاء</span><span class="en">Zaffa &amp; dinner</span></h3><p><span class="ar">بوفيه مفتوح</span><span class="en">Open buffet</span></p></li>
+      <li><time>10:00 PM</time><h3><span class="ar">تقطيع التورتة</span><span class="en">Cake cutting</span></h3><p><span class="ar">والرقصة الأولى</span><span class="en">And the first dance</span></p></li>
+    </ul>
+  </div>
+</section>
+
+<section class="rv">
+  <div class="wrap">
+    <h2 class="disp"><span class="ar">المكان</span><span class="en">Venue</span></h2>
+    <div class="orn">✦ ✦ ✦</div>
+    <div class="venue">
+      <h3 class="disp" style="font-size:1.5rem"><span class="ar">قاعة الحديقة</span><span class="en">The Garden Hall</span></h3>
+      <p style="color:var(--muted)"><span class="ar">المنصورة، الدقهلية</span><span class="en">Mansoura, Egypt</span></p>
+      <div class="btns">
+        <a class="btn solid" href="https://www.google.com/maps/search/?api=1&amp;query=Mansoura%2C%20Egypt" target="_blank" rel="noopener"><span class="ar">📍 افتح الخريطة</span><span class="en">📍 Open map</span></a>
+        <button class="btn" id="ics"><span class="ar">📅 أضف للتقويم</span><span class="en">📅 Add to calendar</span></button>
+      </div>
+      <p style="margin-top:22px;font-weight:600"><span class="ar">ألوان الملابس المقترحة</span><span class="en">Suggested dress colours</span></p>
+      <div class="dress"><i style="background:#5d6b45"></i><i style="background:#b08d57"></i><i style="background:#e9e2d0"></i><i style="background:#8a9a7b"></i></div>
+    </div>
+  </div>
+</section>
+
+<section class="rv" id="rsvp" style="background:var(--paper)">
+  <div class="wrap">
+    <h2 class="disp"><span class="ar">تأكيد الحضور</span><span class="en">RSVP</span></h2>
+    <div class="orn">✦ ✦ ✦</div>
+    <p style="color:var(--muted);margin-bottom:24px"><span class="ar">ياريت تأكد حضورك قبل ١ أبريل ٢٠٢٧</span><span class="en">Kindly reply by 1 April 2027</span></p>
+    <form id="form">
+      <label><span class="ar">الاسم</span><span class="en">Full name</span><input id="fname" required></label>
+      <div class="att">
+        <input type="radio" name="a" id="yes" value="yes" checked><label for="yes"><span class="ar">🎉 هحضر بإذن الله</span><span class="en">🎉 Joyfully accept</span></label>
+        <input type="radio" name="a" id="no" value="no"><label for="no"><span class="ar">😔 للأسف مش هقدر</span><span class="en">😔 Regretfully decline</span></label>
+      </div>
+      <label id="gWrap"><span class="ar">عدد الأشخاص</span><span class="en">Number of guests</span>
+        <select id="guests"><option>1</option><option>2</option><option>3</option><option>4</option></select></label>
+      <label><span class="ar">رسالة للعروسين (اختياري)</span><span class="en">A note for the couple (optional)</span><textarea id="msg" rows="3"></textarea></label>
+      <button class="btn solid" style="padding:13px"><span class="ar">إرسال</span><span class="en">Send RSVP</span></button>
+    </form>
+    <div class="thanks" id="thanks"></div>
+    <p class="count" id="count"></p>
+  </div>
+</section>
+
+<section class="rv">
+  <div class="wrap">
+    <h2 class="disp"><span class="ar">أسئلة متكررة</span><span class="en">FAQ</span></h2>
+    <div class="orn">✦ ✦ ✦</div>
+    <details><summary><span class="ar">هل فيه مكان لركن العربيات؟</span><span class="en">Is there parking?</span></summary><p><span class="ar">أيوه، فيه جراج مجاني جنب القاعة.</span><span class="en">Yes, free parking is available next to the hall.</span></p></details>
+    <details><summary><span class="ar">هل الأطفال مدعوين؟</span><span class="en">Are children welcome?</span></summary><p><span class="ar">أكيد! بس ياريت تكتب عددهم في تأكيد الحضور.</span><span class="en">Of course! Please include them in your guest count.</span></p></details>
+    <details><summary><span class="ar">ممكن أصوّر؟</span><span class="en">Can I take photos?</span></summary><p><span class="ar">طبعًا، وشاركونا الصور بهاشتاج ‎#OmarAndLayla</span><span class="en">Absolutely, share them with #OmarAndLayla</span></p></details>
+  </div>
+</section>
+
+<footer>
+  <div class="names-s disp"><span class="ar">عمر وليلى</span><span class="en">Omar &amp; Layla</span></div>
+  <div>15 · 04 · 2027</div>
+  <span class="demo"><span class="ar">قالب تجريبي بأسماء خيالية — تصميم عبدالله سلامة</span><span class="en">Demo template with fictional names — by Abdullah Salama</span></span>
+</footer>
+
+<script>
+const $=s=>document.querySelector(s);
+const WED=new Date("2027-04-15T19:00:00+02:00");
+let lang="ar";
+const guest=new URLSearchParams(location.search).get("guest");
+const T=(a,e)=>lang==="ar"?a:e;
+function esc(s){return s.replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]))}
+
+function personal(){
+  $("#dear").innerHTML=guest?T(`أهلاً ${esc(guest)} 🤍`,`Dear ${esc(guest)} 🤍`):"";
+  $("#guestLine").innerHTML=guest?T(`يسعدنا وجودك معانا يا ${esc(guest)}`,`We'd love to celebrate with you, ${esc(guest)}`):"";
+  if(guest&&!$("#fname").value)$("#fname").value=guest;
+}
+function tick(){
+  const d=WED-new Date();
+  if(d<=0){$("#cd").outerHTML=`<p class="done disp" id="cd">${T("الحمد لله، تم الفرح 💍 شكرًا لكل اللي شاركونا","We said yes 💍 Thank you for celebrating with us")}</p>`;return;}
+  const u=[[Math.floor(d/864e5),T("يوم","days")],[Math.floor(d/36e5)%24,T("ساعة","hours")],[Math.floor(d/6e4)%60,T("دقيقة","min")],[Math.floor(d/1e3)%60,T("ثانية","sec")]];
+  $("#cd").innerHTML=u.map(x=>`<div><b>${x[0]}</b><span>${x[1]}</span></div>`).join("");
+}
+function count(){
+  let list=[];try{list=JSON.parse(localStorage.getItem("rsvps")||"[]")}catch(e){}
+  const n=list.filter(r=>r.a==="yes").reduce((s,r)=>s+ +r.g,0);
+  $("#count").textContent=list.length?T(`ردود محفوظة على الجهاز ده: ${list.length} • حضور متوقع: ${n}`,`RSVPs saved on this device: ${list.length} • expected guests: ${n}`):"";
+}
+function setLang(l){lang=l;document.documentElement.lang=l;document.documentElement.dir=l==="ar"?"rtl":"ltr";$("#lang").textContent=l==="ar"?"EN":"عربي";personal();tick();count();}
+
+$("#env").onclick=()=>{$("#env").classList.add("open");setTimeout(()=>$("#intro").classList.add("gone"),700)};
+$("#lang").onclick=()=>setLang(lang==="ar"?"en":"ar");
+document.querySelectorAll("[name=a]").forEach(r=>r.onchange=()=>$("#gWrap").style.display=$("#no").checked?"none":"");
+$("#form").onsubmit=e=>{
+  e.preventDefault();
+  const r={n:$("#fname").value.trim(),a:$("#yes").checked?"yes":"no",g:$("#yes").checked?$("#guests").value:0,m:$("#msg").value,t:Date.now()};
+  try{const l=JSON.parse(localStorage.getItem("rsvps")||"[]");l.push(r);localStorage.setItem("rsvps",JSON.stringify(l))}catch(err){}
+  $("#form").style.display="none";const th=$("#thanks");th.style.display="block";
+  th.innerHTML=r.a==="yes"?T(`<h3 class="disp" style="font-size:1.6rem">شكرًا يا ${esc(r.n)}! 🎉</h3><p>مستنيينك ومعاك ${r.g} ${r.g>1?"أشخاص":"شخص"}.</p>`,`<h3 class="disp" style="font-size:1.6rem">Thank you, ${esc(r.n)}! 🎉</h3><p>We can't wait to see you (party of ${r.g}).</p>`)
+    :T(`<h3 class="disp" style="font-size:1.6rem">هتوحشنا يا ${esc(r.n)} 🤍</h3><p>شكرًا إنك بلّغتنا.</p>`,`<h3 class="disp" style="font-size:1.6rem">We'll miss you, ${esc(r.n)} 🤍</h3><p>Thank you for letting us know.</p>`);
+  count();
+};
+$("#ics").onclick=()=>{
+  const ics=["BEGIN:VCALENDAR","VERSION:2.0","PRODID:-//wedding//EN","BEGIN:VEVENT","UID:omar-layla-2027@invite","DTSTAMP:20261116T000000Z","DTSTART:20270415T170000Z","DTEND:20270415T220000Z","SUMMARY:Omar & Layla's Wedding","LOCATION:The Garden Hall\\, Mansoura","END:VEVENT","END:VCALENDAR"].join("\r\n");
+  const a=document.createElement("a");a.href=URL.createObjectURL(new Blob([ics],{type:"text/calendar"}));a.download="omar-layla-wedding.ics";a.click();
+};
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll(".rv").forEach(el=>io.observe(el));
+if(new URLSearchParams(location.search).has("open"))$("#intro").classList.add("gone");
+setLang("ar");setInterval(tick,1000);
+</script>
+</body>
+</html>
